@@ -1,0 +1,2893 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{E55AD8E3-A3AA-4710-99DA-4DA7731E58B2}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ZipPla</RootNamespace>
+    <AssemblyName>ZipPla</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\General\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DRAWING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\General\</OutputPath>
+    <DefineConstants>DRAWING</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <FileAlignment>512</FileAlignment>
+    <GenerateSerializationAssemblies>Auto</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>light.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'AutoBuild|AnyCPU'">
+    <OutputPath>bin\AutoBuild\</OutputPath>
+    <DefineConstants>DRAWING;AUTOBUILD</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>none</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'OptDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\General\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DRAWING</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Optimize>true</Optimize>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'VDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\General\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DRAWING;VEIWER</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'VOpt|AnyCPU'">
+    <DebugSymbols>false</DebugSymbols>
+    <OutputPath>bin\General\</OutputPath>
+    <DefineConstants>DRAWING;VEIWER</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>none</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>none</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'ScrCap|AnyCPU'">
+    <OutputPath>bin\ScrCap\</OutputPath>
+    <DefineConstants>DRAWING;SCREENCAPTCHA</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\General\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DRAWING</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'LabOpt|AnyCPU'">
+    <OutputPath>bin\General\</OutputPath>
+    <DefineConstants>DRAWING;LAB</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'x86VDebug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\General\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;DRAWING;VEIWER</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'RunTime|AnyCPU'">
+    <OutputPath>bin\RunTime\</OutputPath>
+    <DefineConstants>DRAWING;RUNTIME</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Deployment.Compression, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ce35f76fcda82bad, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Microsoft.Deployment.Compression.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Deployment.Compression.Cab, Version=3.0.0.0, Culture=neutral, PublicKeyToken=ce35f76fcda82bad, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\Microsoft.Deployment.Compression.Cab.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.Remoting" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutForm.Designer.cs">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivateManager.cs" />
+    <Compile Include="APngLoader.cs" />
+    <Compile Include="ApplicationProvider.cs" />
+    <Compile Include="ArchivePropertiesForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ArchivePropertiesForm.Designer.cs">
+      <DependentUpon>ArchivePropertiesForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AssociationManager.cs" />
+    <Compile Include="BetterFormRestoreBounds.cs" />
+    <Compile Include="BitmapAnalyzer.cs" />
+    <Compile Include="BitmapResizer.cs" />
+    <Compile Include="ClipboardViewer.cs" />
+    <Compile Include="ControlPainter.cs" />
+    <Compile Include="DataGridViewFileList.cs" />
+    <Compile Include="DataGridViewScrollBarTouchFixer.cs" />
+    <Compile Include="DynamicStringSelectionToolStripMenuItem.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Exif.cs" />
+    <Compile Include="ExplorerTreeView\ExplorerTreeView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ExplorerTreeView\ExplorerTreeView.Designer.cs">
+      <DependentUpon>ExplorerTreeView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ExplorerTreeView\ExplorerTreeViewWnd.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ExplorerTreeView\ShellAPI.cs" />
+    <Compile Include="ExplorerTreeView\ShellItem.cs" />
+    <Compile Include="ExplorerTreeView\SystemImageList.cs" />
+    <Compile Include="FileOperation\ComReleaser.cs" />
+    <Compile Include="FileOperation\FileOperation.cs" />
+    <Compile Include="FileOperation\FileOperationProgressSink.cs" />
+    <Compile Include="FileOperation\Interop\CopyEngineResult.cs" />
+    <Compile Include="FileOperation\Interop\FileOperationFlags.cs" />
+    <Compile Include="FileOperation\Interop\IFileOperation.cs" />
+    <Compile Include="FileOperation\Interop\IFileOperationProgressSink.cs" />
+    <Compile Include="FileOperation\Interop\IShellItem.cs" />
+    <Compile Include="FileOperation\Interop\SIGDN.cs" />
+    <Compile Include="FileTypeManager.cs" />
+    <Compile Include="FilterEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FilterEditForm.Designer.cs">
+      <DependentUpon>FilterEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GifAnalyzer.cs" />
+    <Compile Include="GPSizeThumbnail.cs" />
+    <Compile Include="HtmlRenderer\Adapters\Entities\RColor.cs" />
+    <Compile Include="HtmlRenderer\Adapters\Entities\RDashStyle.cs" />
+    <Compile Include="HtmlRenderer\Adapters\Entities\RFontStyle.cs" />
+    <Compile Include="HtmlRenderer\Adapters\Entities\RKeyEvent.cs" />
+    <Compile Include="HtmlRenderer\Adapters\Entities\RMouseEvent.cs" />
+    <Compile Include="HtmlRenderer\Adapters\Entities\RPoint.cs" />
+    <Compile Include="HtmlRenderer\Adapters\Entities\RRect.cs" />
+    <Compile Include="HtmlRenderer\Adapters\Entities\RSize.cs" />
+    <Compile Include="HtmlRenderer\Adapters\RAdapter.cs" />
+    <Compile Include="HtmlRenderer\Adapters\RBrush.cs" />
+    <Compile Include="HtmlRenderer\Adapters\RContextMenu.cs" />
+    <Compile Include="HtmlRenderer\Adapters\RControl.cs" />
+    <Compile Include="HtmlRenderer\Adapters\RFont.cs" />
+    <Compile Include="HtmlRenderer\Adapters\RFontFamily.cs" />
+    <Compile Include="HtmlRenderer\Adapters\RGraphics.cs" />
+    <Compile Include="HtmlRenderer\Adapters\RGraphicsPath.cs" />
+    <Compile Include="HtmlRenderer\Adapters\RImage.cs" />
+    <Compile Include="HtmlRenderer\Adapters\RPen.cs" />
+    <Compile Include="HtmlRenderer\Core\CssData.cs" />
+    <Compile Include="HtmlRenderer\Core\CssDefaults.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\Border.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssBox.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssBoxFrame.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssBoxHr.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssBoxImage.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssBoxProperties.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssLayoutEngine.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssLayoutEngineTable.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssLength.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssLineBox.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssRect.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssRectImage.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssRectWord.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssSpacingBox.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\CssUnit.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\HoverBoxBlock.cs" />
+    <Compile Include="HtmlRenderer\Core\Dom\HtmlTag.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\CssBlock.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\CssBlockSelectorItem.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\HtmlGenerationStyle.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\HtmlImageLoadEventArgs.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\HtmlLinkClickedEventArgs.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\HtmlLinkClickedException.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\HtmlRefreshEventArgs.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\HtmlRenderErrorEventArgs.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\HtmlRenderErrorType.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\HtmlScrollEventArgs.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\HtmlStylesheetLoadEventArgs.cs" />
+    <Compile Include="HtmlRenderer\Core\Entities\LinkElementData.cs" />
+    <Compile Include="HtmlRenderer\Core\Handlers\BackgroundImageDrawHandler.cs" />
+    <Compile Include="HtmlRenderer\Core\Handlers\BordersDrawHandler.cs" />
+    <Compile Include="HtmlRenderer\Core\Handlers\ContextMenuHandler.cs" />
+    <Compile Include="HtmlRenderer\Core\Handlers\FontsHandler.cs" />
+    <Compile Include="HtmlRenderer\Core\Handlers\ImageLoadHandler.cs" />
+    <Compile Include="HtmlRenderer\Core\Handlers\SelectionHandler.cs" />
+    <Compile Include="HtmlRenderer\Core\Handlers\StylesheetLoadHandler.cs" />
+    <Compile Include="HtmlRenderer\Core\HtmlContainerInt.cs" />
+    <Compile Include="HtmlRenderer\Core\HtmlRendererUtils.cs" />
+    <Compile Include="HtmlRenderer\Core\Parse\CssParser.cs" />
+    <Compile Include="HtmlRenderer\Core\Parse\CssValueParser.cs" />
+    <Compile Include="HtmlRenderer\Core\Parse\DomParser.cs" />
+    <Compile Include="HtmlRenderer\Core\Parse\HtmlParser.cs" />
+    <Compile Include="HtmlRenderer\Core\Parse\RegexParserHelper.cs" />
+    <Compile Include="HtmlRenderer\Core\Parse\RegexParserUtils.cs" />
+    <Compile Include="HtmlRenderer\Core\Utils\ArgChecker.cs" />
+    <Compile Include="HtmlRenderer\Core\Utils\CommonUtils.cs" />
+    <Compile Include="HtmlRenderer\Core\Utils\CssConstants.cs" />
+    <Compile Include="HtmlRenderer\Core\Utils\CssUtils.cs" />
+    <Compile Include="HtmlRenderer\Core\Utils\DomUtils.cs" />
+    <Compile Include="HtmlRenderer\Core\Utils\HtmlConstants.cs" />
+    <Compile Include="HtmlRenderer\Core\Utils\HtmlUtils.cs" />
+    <Compile Include="HtmlRenderer\Core\Utils\RenderUtils.cs" />
+    <Compile Include="HtmlRenderer\Core\Utils\SubString.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Adapters\BrushAdapter.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Adapters\ContextMenuAdapter.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Adapters\ControlAdapter.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Adapters\FontAdapter.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Adapters\FontFamilyAdapter.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Adapters\GraphicsAdapter.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Adapters\GraphicsPathAdapter.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Adapters\ImageAdapter.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Adapters\PenAdapter.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Adapters\WinFormsAdapter.cs" />
+    <Compile Include="HtmlRenderer\WinForms\HtmlContainer.cs" />
+    <Compile Include="HtmlRenderer\WinForms\HtmlLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlRenderer\WinForms\HtmlPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlRenderer\WinForms\HtmlRender.cs" />
+    <Compile Include="HtmlRenderer\WinForms\HtmlToolTip.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HtmlRenderer\WinForms\Utilities\ClipboardHelper.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Utilities\Utils.cs" />
+    <Compile Include="HtmlRenderer\WinForms\Utilities\Win32Utils.cs" />
+    <Compile Include="IGraphicalList.cs" />
+    <Compile Include="ImageFormat\DDS\CSharpImageLibrary\DDSGeneral.cs" />
+    <Compile Include="ImageFormat\DDS\CSharpImageLibrary\ImageEngine.cs" />
+    <Compile Include="ImageFormat\DDS\CSharpImageLibrary\ImageEngineImage.cs" />
+    <Compile Include="ImageFormat\DDS\CSharpImageLibrary\ImageFormats.cs" />
+    <Compile Include="ImageFormat\DDS\CSharpImageLibrary\MipMap.cs" />
+    <Compile Include="ImageFormat\DDS\CSharpImageLibrary\Targa.cs" />
+    <Compile Include="ImageFormat\DDS\CSharpImageLibrary\WIC_Codecs.cs" />
+    <Compile Include="ImageFormat\DDS\UsefulThings\Extensions.cs" />
+    <Compile Include="ImageFormat\DDS\UsefulThings\General.cs" />
+    <Compile Include="ImageFormat\DDS\UsefulThings\MemoryTributary.cs" />
+    <Compile Include="ImageFormat\DDS\UsefulThings\NaturalSortComparer.cs" />
+    <Compile Include="ImageFormat\DDS\UsefulThings\WinForms\Imaging.cs" />
+    <Compile Include="ImageFormat\DDS\UsefulThings\WPF\Images.cs" />
+    <Compile Include="ImageFormat\PSD\AlphaChannels.cs" />
+    <Compile Include="ImageFormat\PSD\BinaryReverseReader.cs" />
+    <Compile Include="ImageFormat\PSD\BinaryReverseWriter.cs" />
+    <Compile Include="ImageFormat\PSD\ImageDecoder.cs" />
+    <Compile Include="ImageFormat\PSD\ImageResource.cs" />
+    <Compile Include="ImageFormat\PSD\Layer.cs" />
+    <Compile Include="ImageFormat\PSD\LayerAdjusmentLayerInfo.cs" />
+    <Compile Include="ImageFormat\PSD\LayerBlendingRanges.cs" />
+    <Compile Include="ImageFormat\PSD\LayerChannel.cs" />
+    <Compile Include="ImageFormat\PSD\LayerMask.cs" />
+    <Compile Include="ImageFormat\PSD\LengthWriter.cs" />
+    <Compile Include="ImageFormat\PSD\PSDFile.cs" />
+    <Compile Include="ImageFormat\PSD\ResolutionInfo.cs" />
+    <Compile Include="ImageFormat\PSD\RleHelper.cs" />
+    <Compile Include="ImageFormat\PSD\Thumbnail.cs" />
+    <Compile Include="ImageFormat\PSD\Utilities.cs" />
+    <Compile Include="ImageFormat\WindowsMediaPhoto.cs" />
+    <Compile Include="ImageHeaderParser.cs" />
+    <Compile Include="ImageLoader.cs" />
+    <Compile Include="iTextSharp\iTextSharp\awt\geom\AffineTransform.cs" />
+    <Compile Include="iTextSharp\iTextSharp\awt\geom\Point.cs" />
+    <Compile Include="iTextSharp\iTextSharp\awt\geom\Point2D.cs" />
+    <Compile Include="iTextSharp\iTextSharp\testutils\CompareTool.cs" />
+    <Compile Include="iTextSharp\iTextSharp\testutils\ITextTest.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\AccessibleElementId.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Anchor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Annotation.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\api\IIndentable.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\api\ISpaceable.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\api\IWriterOperation.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\BadElementException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\BaseColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Chapter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ChapterAutoNumber.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Chunk.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Document.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\DocumentException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\DocWriter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Element.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\error_messages\LocalizedResource.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\error_messages\MessageLocalization.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\exceptions\BadPasswordException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\exceptions\IllegalPdfSyntaxException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\exceptions\InvalidImageException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\exceptions\InvalidPdfException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\exceptions\UnsupportedPdfException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\factories\GreekAlphabetFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\factories\RomanAlphabetFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\factories\RomanNumberFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Font.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\FontFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\FontFactoryImp.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\GreekList.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Header.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\HtmlEncoder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\HtmlTags.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\HtmlUtilities.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\CellWrapper.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\ChainedProperties.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\ElementFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\HTMLTagProcessors.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\HTMLWorker.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\IHTMLTagProcessor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\IImageProcessor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\IImageProvider.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\ILinkProcessor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\ImageStore.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\StyleSheet.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\simpleparser\TableWrapper.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\html\WebColors.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\IDocListener.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\IElement.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\IElementListener.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\IFontProvider.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ILargeElement.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Image.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ImgCCITT.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ImgJBIG2.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ImgRaw.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ImgTemplate.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ImgWMF.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\io\ArrayRandomAccessSource.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\io\GetBufferedRandomAccessSource.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\io\GroupedRandomAccessSource.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\io\IndependentRandomAccessSource.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\io\IRandomAccessSource.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\io\RAFRandomAccessSource.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\io\RandomAccessSourceFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\io\RASInputStream.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\io\StreamUtil.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\io\WindowRandomAccessSource.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\IRtfElementInterface.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ISplitCharacter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ITextElementArray.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Jpeg.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Jpeg2000.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\List.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ListBody.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ListItem.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ListLabel.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\log\CounterFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\log\DefaultCounter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\log\ICounter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\log\ILogger.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\log\Level.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\log\LoggerFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\log\NoOpCounter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\log\NoOpLogger.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\log\SysoCounter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\log\SysoLogger.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\MarkedObject.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\MarkedSection.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Meta.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\PageSize.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Paragraph.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\AcroFields.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BadPdfFormatException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\Barcode.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\Barcode128.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\Barcode39.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BarcodeCodabar.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BarcodeDatamatrix.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BarcodeEAN.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BarcodeEANSUPP.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BarcodeInter25.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BarcodePDF417.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BarcodePostnet.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BarcodeQRCode.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BaseField.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BaseFont.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BidiLine.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\BidiOrder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\ByteBuffer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\CFFFont.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\CFFFontSubset.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\CJKFont.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\CMapAwareDocumentFont.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\CMYKColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\BitFile.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\BmpImage.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\CCITTG4Encoder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\GifImage.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\JBIG2Image.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\JBIG2SegmentReader.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\LZWCompressor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\LZWStringTable.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\PngImage.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\PngWriter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\TIFFConstants.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\TIFFDirectory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\TIFFFaxDecoder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\TIFFFaxDecompressor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\TIFFField.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\TiffImage.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\TIFFLZWDecoder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\TiffWriter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\wmf\InputMeta.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\wmf\MetaBrush.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\wmf\MetaDo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\wmf\MetaFont.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\wmf\MetaObject.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\wmf\MetaPen.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\wmf\MetaState.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\codec\wmf\Point.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\collection\PdfCollection.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\collection\PdfCollectionField.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\collection\PdfCollectionItem.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\collection\PdfCollectionSchema.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\collection\PdfCollectionSort.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\collection\PdfTargetDictionary.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\ColorDetails.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\ColumnText.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\crypto\AESCipher.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\crypto\AESCipherCBCnoPad.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\crypto\ARCFOUREncryption.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\crypto\IVGenerator.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\DefaultSplitCharacter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\DeviceNColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\DocumentFont.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\draw\DottedLineSeparator.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\draw\IDrawInterface.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\draw\LineSeparator.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\draw\VerticalPositionMark.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\EnumerateTTC.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\events\FieldPositioningEvents.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\events\IndexEvents.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\events\PdfPageEventForwarder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\events\PdfPCellEventForwarder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\events\PdfPTableEventForwarder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\ExtendedColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\FdfReader.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\FdfWriter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\FilterHandlers.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\FloatLayout.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\FontDetails.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\FontSelector.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\AbstractCMap.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\CidLocationFromByte.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\CidResource.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\CMapByteCid.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\CMapCache.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\CMapCidByte.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\CMapCidUni.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\CMapParserEx.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\CMapSequence.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\CMapToUnicode.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\CMapUniCid.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\ICidLocation.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\fonts\cmaps\IdentityToUnicode.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\GlyphList.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\GrayColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\HyphenationAuto.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\hyphenation\ByteVector.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\hyphenation\CharVector.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\hyphenation\Hyphen.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\hyphenation\Hyphenation.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\hyphenation\HyphenationException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\hyphenation\HyphenationTree.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\hyphenation\Hyphenator.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\hyphenation\IPatternConsumer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\hyphenation\SimplePatternParser.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\hyphenation\TernaryTree.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\ICachedColorSpace.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\ICC_Profile.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\IExtraEncoding.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\IHyphenationEvent.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IAccessibleElement.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IAlternateDescription.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IPdfAnnotations.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IPdfDocumentActions.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IPdfEncryptionSettings.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IPdfIsoConformance.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IPdfPageActions.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IPdfRunDirection.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IPdfStructureElement.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IPdfVersion.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IPdfViewerPreferences.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\interfaces\IPdfXConformance.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\intern\PdfAnnotationsImp.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\intern\PdfIsoKeys.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\intern\PdfVersionImp.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\intern\PdfViewerPreferencesImp.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\intern\PdfXConformanceImp.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\IntHashtable.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\IPdfOCG.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\IPdfPageEvent.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\IPdfPCellEvent.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\IPdfPTableEvent.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\IPdfPTableEventSplit.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\IPdfSpecialColorSpace.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\LabColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\languages\ArabicLigaturizer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\languages\DevanagariLigaturizer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\languages\GujaratiLigaturizer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\languages\HebrewProcessor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\languages\ILanguageProcessor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\languages\IndicLigaturizer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\LongHashtable.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\LZWDecoder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\NumberArray.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\OutputStreamCounter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\OutputStreamEncryption.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PageResources.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\BezierCurve.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\clipper\Clipper.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\ContentByteUtils.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\FilteredRenderListener.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\FilteredTextRenderListener.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\GlyphRenderListener.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\GlyphTextRenderListener.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\GraphicsState.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\IContentOperator.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\IExtRenderListener.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\ImageRenderInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\InlineImageInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\InlineImageUtils.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\IRenderListener.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\ITextExtractionStrategy.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\IXObjectDoHandler.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\Line.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\LineDashPattern.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\LineSegment.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\LocationTextExtractionStrategy.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\MarkedContentInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\MarkedContentRenderFilter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\Matrix.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\MultiFilteredRenderListener.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\Path.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\PathConstructionRenderInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\PathPaintingRenderInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\PdfContentStreamProcessor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\PdfImageObject.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\PdfReaderContentParser.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\PdfTextExtractor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\RegionTextRenderFilter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\RenderFilter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\Shape.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\SimpleTextExtractionStrategy.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\Subpath.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\TaggedPdfReaderTool.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\TextMarginFinder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\TextRenderInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\parser\Vector.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PatternColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfAcroForm.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfAction.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfAnnotation.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfAppearance.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfArray.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfArtifact.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfBody.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfBoolean.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfBorderArray.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfBorderDictionary.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfChunk.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfConcatenate.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfContentByte.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfContentParser.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfContents.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfCopy.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfCopyFields.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfCopyFieldsImp.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfCopyForms.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfCopyFormsImp.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfDashPattern.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfDate.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfDestination.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfDeveloperExtension.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfDeviceNColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfDictionary.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfDiv.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfDocument.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfEFStream.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfEncodings.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfEncryption.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfEncryptor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfFileSpecification.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfFont.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfFormField.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfFormXObject.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfFunction.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfGState.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfICCBased.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfImage.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfImportedPage.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfIndirectObject.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfIndirectReference.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfIsoConformanceException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfLabColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfLayer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfLayerMembership.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfLine.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfLiteral.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfMediaClipData.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfName.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfNameTree.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfNull.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfNumber.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfNumberTree.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfObject.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfOCProperties.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfOutline.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPage.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPageEventHelper.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPageLabels.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPages.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPattern.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPatternPainter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPCell.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPHeaderCell.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPRow.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPSXObject.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPTable.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPTableBody.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPTableEventAfterSplit.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPTableFooter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPTableHeader.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPublicKeyRecipient.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfPublicKeySecurityHandler.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfReader.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfReaderInstance.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfRectangle.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfRendition.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfResources.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfShading.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfShadingPattern.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfSigLockDictionary.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfSignature.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfSignatureAppearance.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfSmartCopy.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfSpotColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfStamper.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfStamperImp.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfStream.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfString.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfStructTreeController.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfStructureElement.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfStructureTreeRoot.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfTemplate.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfTextArray.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfTransition.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfTransparencyGroup.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfVisibilityExpression.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfWriter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PdfXConformanceException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\Pfm2afm.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PRAcroForm.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PRIndirectReference.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PRStream.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PRTokeniser.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\PushbuttonField.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\BitArray.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\BitMatrix.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\BitVector.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\BlockPair.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\ByteArray.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\ByteMatrix.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\CharacterSetECI.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\EncodeHintType.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\Encoder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\ErrorCorrectionLevel.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\FormatInformation.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\GF256.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\GF256Poly.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\MaskUtil.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\MatrixUtil.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\Mode.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\QRCode.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\QRCodeWriter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\ReedSolomonEncoder.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\ReedSolomonException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\Version.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\qrcode\WriterException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\RadioCheckField.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\RandomAccessFileOrArray.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\RefKey.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\AsymmetricAlgorithmSignature.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\CertificateInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\CertificateUtil.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\CertificateVerification.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\CertificateVerifier.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\CrlClientOffline.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\CrlClientOnline.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\CrlVerifier.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\DigestAlgorithms.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\EncryptionAlgorithms.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\ExternalBlankSignatureContainer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\ICrlClient.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\IExternalSignature.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\IExternalSignatureContainer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\IOcspClient.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\ITSAClient.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\ITSAInfoBouncyCastle.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\IXmlLocator.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\IXpathConstructor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\LtvTimestamp.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\LtvVerification.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\LtvVerifier.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\MakeSignature.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\MakeXmlSignature.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\OcspClientBouncyCastle.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\OcspVerifier.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\PdfPKCS7.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\PdfSignatureAppDictionary.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\PdfSignatureBuildProperties.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\PrivateKeySignature.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\RootStoreVerifier.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\SecurityConstants.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\SecurityIDs.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\SignaturePermissions.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\SignaturePolicyInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\TSAClientBouncyCastle.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\VerificationException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\VerificationOK.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\security\X509Certificate2Signature.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\SequenceList.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\ShadingColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\SimpleBookmark.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\SimpleNamedDestination.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\SpotColor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\StampContent.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\StandardDecryption.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\StringUtils.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\TextField.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\TrueTypeFont.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\TrueTypeFontSubSet.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\TrueTypeFontUnicode.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\TtfUnicodeWriter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\Type1Font.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\Type3Font.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\Type3Glyph.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\VerticalText.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\XfaForm.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\XfaXmlLocator.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\XfaXpathConstructor.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\XfdfReader.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\pdf\XmlSignatureAppearance.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Phrase.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Rectangle.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\RectangleReadOnly.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\RomanList.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Section.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\SpecialSymbol.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\TabSettings.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\TabSplitCharacter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\TabStop.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Utilities.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\Version.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\WritableDirectElement.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\ParserBase.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\simpleparser\EntitiesToSymbol.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\simpleparser\EntitiesToUnicode.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\simpleparser\handler\HTMLNewLineHandler.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\simpleparser\handler\NeverNewLineHandler.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\simpleparser\IanaEncodings.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\simpleparser\INewLineHandler.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\simpleparser\ISimpleXMLDocHandler.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\simpleparser\ISimpleXMLDocHandlerComment.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\simpleparser\SimpleXMLParser.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\XmlDomWriter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\XmlToTxt.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\XMLUtil.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\DublinCoreProperties.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\DublinCoreSchema.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\EncodingNoPreamble.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\LangAlt.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\PdfProperties.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\PdfSchema.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\XmpArray.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\XmpBasicProperties.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\XmpBasicSchema.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\XmpMMProperties.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\XmpMMSchema.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\XmpReader.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\XmpSchema.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\xml\xmp\XmpWriter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ZapfDingbatsList.cs" />
+    <Compile Include="iTextSharp\iTextSharp\text\ZapfDingbatsNumberList.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\Base64.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\ByteBuffer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\CountOutputStream.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\FilterReader.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\FixAsciiControlsReader.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\Iso8601Converter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\Latin1Converter.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\ParameterAsserts.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\ParseRdf.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\PushbackReader.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\QName.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\Utils.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpDateTimeImpl.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpIteratorImpl.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpMetaImpl.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpMetaParser.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpNode.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpNodeUtils.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpNormalizer.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpSchemaRegistryImpl.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpSerializerHelper.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpSerializerRdf.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\XmpUtilsImpl.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\xpath\XmpPath.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\xpath\XmpPathParser.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\impl\xpath\XmpPathSegment.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\IXmpDateTime.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\IXmpIterator.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\IXmpMeta.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\IXmpSchemaRegistry.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\IXmpVersionInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\options\AliasOptions.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\options\IteratorOptions.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\options\ParseOptions.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\options\PropertyOptions.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\options\SerializeOptions.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\options\XmpOptions.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\properties\IXmpAliasInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\properties\IXmpProperty.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\properties\IXmpPropertyInfo.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\XmpCalendar.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\XmpConst.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\XmpDateTimeFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\XmpError.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\XmpException.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\XmpMetaFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\XmpPathFactory.cs" />
+    <Compile Include="iTextSharp\iTextSharp\xmp\XmpUtils.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1Encodable.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1EncodableVector.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1Exception.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ASN1Generator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1InputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1Null.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1Object.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1OctetString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ASN1OctetStringParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1OutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1ParsingException.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1Sequence.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ASN1SequenceParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1Set.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ASN1SetParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ASN1StreamParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1TaggedObject.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ASN1TaggedObjectParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\Asn1Tags.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\bc\BCObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BerApplicationSpecific.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BerApplicationSpecificParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BERGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BerNull.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BerOctetString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BEROctetStringGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BEROctetStringParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BerOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BerSequence.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BERSequenceGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BERSequenceParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BerSet.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BERSetGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BERSetParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BerTaggedObject.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\BERTaggedObjectParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\CAKeyUpdAnnContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\CertConfirmContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\CertifiedKeyPair.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\CertOrEncCert.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\CertRepMessage.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\CertResponse.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\CertStatus.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\Challenge.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\CmpCertificate.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\CmpObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\CrlAnnContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\ErrorMsgContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\GenMsgContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\GenRepContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\InfoTypeAndValue.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\KeyRecRepContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\OobCertHash.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PbmParameter.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PKIBody.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PKIConfirmContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PKIFailureInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PKIFreeText.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PKIHeader.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PKIHeaderBuilder.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PKIMessage.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PKIMessages.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PKIStatus.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PKIStatusInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PollRepContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PollReqContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PopoDecKeyChallContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\PopoDecKeyRespContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\ProtectedPart.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\RevAnnContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\RevDetails.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\RevRepContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\RevRepContentBuilder.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cmp\RevReqContent.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\Attribute.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\Attributes.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\AttributeTable.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\AuthenticatedData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\AuthenticatedDataParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\AuthEnvelopedData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\AuthEnvelopedDataParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\CMSAttributes.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\CMSObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\CompressedData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\CompressedDataParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\ContentInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\ContentInfoParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\ecc\MQVuserKeyingMaterial.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\EncryptedContentInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\EncryptedContentInfoParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\EncryptedData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\EnvelopedData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\EnvelopedDataParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\Evidence.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\IssuerAndSerialNumber.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\KEKIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\KEKRecipientInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\KeyAgreeRecipientIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\KeyAgreeRecipientInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\KeyTransRecipientInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\MetaData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\OriginatorIdentifierOrKey.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\OriginatorInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\OriginatorPublicKey.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\OtherKeyAttribute.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\OtherRecipientInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\OtherRevocationInfoFormat.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\PasswordRecipientInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\RecipientEncryptedKey.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\RecipientIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\RecipientInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\RecipientKeyIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\SCVPReqRes.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\SignedData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\SignedDataParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\SignerIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\SignerInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\Time.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\TimeStampAndCRL.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\TimeStampedData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\TimeStampedDataParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cms\TimeStampTokenEvidence.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ConstructedOctetStream.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\AttributeTypeAndValue.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\CertId.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\CertReqMessages.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\CertReqMsg.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\CertRequest.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\CertTemplate.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\CertTemplateBuilder.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\Controls.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\CrmfObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\EncKeyWithID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\EncryptedKey.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\EncryptedValue.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\OptionalValidity.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\PKIArchiveOptions.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\PKIPublicationInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\PKMacValue.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\PopoPrivKey.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\PopoSigningKey.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\PopoSigningKeyInput.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\ProofOfPossession.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\SinglePubInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\crmf\SubsequentMessage.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cryptopro\CryptoProObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cryptopro\ECGOST3410NamedCurves.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cryptopro\ECGOST3410ParamSetParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cryptopro\GOST28147Parameters.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cryptopro\GOST3410NamedParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cryptopro\GOST3410ParamSetParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\cryptopro\GOST3410PublicKeyAlgParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DefiniteLengthInputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerApplicationSpecific.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerBitString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerBMPString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerBoolean.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerEnumerated.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DERExternal.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DERExternalParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerGeneralizedTime.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerGeneralString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DERGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerIA5String.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerInteger.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerNull.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerNumericString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerObjectIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerOctetString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DEROctetStringParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerPrintableString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerSequence.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DERSequenceGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DERSequenceParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerSet.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DERSetGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DERSetParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerStringBase.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerT61String.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerTaggedObject.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerUniversalString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerUnknownTag.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerUTCTime.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerUTF8String.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\DerVisibleString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\eac\EACObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\CertificateValues.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\CommitmentTypeIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\CommitmentTypeIndication.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\CommitmentTypeQualifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\CompleteCertificateRefs.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\CompleteRevocationRefs.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\CrlIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\CrlListID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\CrlOcspRef.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\CrlValidatedID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\ESFAttributes.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\OcspIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\OcspListID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\OcspResponsesID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\OtherCertID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\OtherHash.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\OtherHashAlgAndValue.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\OtherRevRefs.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\OtherRevVals.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\OtherSigningCertificate.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\RevocationValues.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\SignaturePolicyId.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\SignaturePolicyIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\SignerAttribute.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\SignerLocation.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\esf\SigPolicyQualifierInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ess\ContentHints.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ess\ContentIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ess\ESSCertID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ess\ESSCertIDv2.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ess\OtherCertID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ess\OtherSigningCertificate.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ess\SigningCertificate.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ess\SigningCertificateV2.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\gnu\GNUObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\iana\IANAObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\IAsn1ApplicationSpecificParser.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\IAsn1Choice.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\IAsn1Convertible.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\IAsn1String.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\icao\CscaMasterList.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\icao\DataGroupHash.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\icao\ICAOObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\icao\LDSSecurityObject.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\icao\LDSVersionInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\IndefiniteLengthInputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\ISISMTTObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\ocsp\CertHash.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\ocsp\RequestedCertificate.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\x509\AdditionalInformationSyntax.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\x509\Admissions.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\x509\AdmissionSyntax.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\x509\DeclarationOfMajority.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\x509\MonetaryLimit.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\x509\NamingAuthority.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\x509\ProcurationSyntax.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\x509\ProfessionInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\isismtt\x509\Restriction.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\kisa\KISAObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\LazyASN1InputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\LazyDERSequence.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\LazyDERSet.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\LimitedInputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\microsoft\MicrosoftObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\misc\CAST5CBCParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\misc\IDEACBCPar.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\misc\MiscObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\misc\NetscapeCertType.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\misc\NetscapeRevocationURL.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\misc\VerisignCzagExtension.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\mozilla\PublicKeyAndChallenge.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\nist\NISTNamedCurves.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\nist\NISTObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ntt\NTTObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\BasicOCSPResponse.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\CertID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\CertStatus.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\CrlID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\OCSPObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\OCSPRequest.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\OCSPResponse.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\OCSPResponseStatus.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\Request.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\ResponderID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\ResponseBytes.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\ResponseData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\RevokedInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\ServiceLocator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\Signature.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\SingleResponse.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\ocsp\TBSRequest.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\OidTokenizer.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\oiw\ElGamalParameter.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\oiw\OIWObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\Attribute.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\AuthenticatedSafe.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\CertBag.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\CertificationRequest.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\CertificationRequestInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\ContentInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\DHParameter.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\EncryptedData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\EncryptedPrivateKeyInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\EncryptionScheme.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\IssuerAndSerialNumber.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\KeyDerivationFunc.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\MacData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\PBEParameter.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\PBES2Parameters.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\PBKDF2Params.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\Pfx.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\PKCS12PBEParams.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\PKCSObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\PrivateKeyInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\RC2CBCParameter.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\RSAESOAEPparams.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\RSAPrivateKeyStructure.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\RSASSAPSSparams.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\SafeBag.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\SignedData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\pkcs\SignerInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\sec\ECPrivateKeyStructure.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\sec\SECNamedCurves.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\sec\SECObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\smime\SMIMEAttributes.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\smime\SMIMECapabilities.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\smime\SMIMECapabilitiesAttribute.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\smime\SMIMECapability.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\smime\SMIMECapabilityVector.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\smime\SMIMEEncryptionKeyPreferenceAttribute.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\teletrust\TeleTrusTNamedCurves.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\teletrust\TeleTrusTObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\tsp\Accuracy.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\tsp\MessageImprint.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\tsp\TimeStampReq.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\tsp\TimeStampResp.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\tsp\TSTInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\util\Asn1Dump.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\util\FilterStream.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x500\DirectoryString.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\AccessDescription.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\AlgorithmIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\AttCertIssuer.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\AttCertValidityPeriod.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\Attribute.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\AttributeCertificate.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\AttributeCertificateInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\AttributeTable.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\AuthorityInformationAccess.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\AuthorityKeyIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\BasicConstraints.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\CertificateList.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\CertificatePair.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\CertificatePolicies.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\CertPolicyId.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\CRLDistPoint.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\CRLNumber.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\CRLReason.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\DigestInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\DisplayText.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\DistributionPoint.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\DistributionPointName.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\DSAParameter.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\ExtendedKeyUsage.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\GeneralName.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\GeneralNames.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\GeneralSubtree.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\Holder.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\IetfAttrSyntax.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\IssuerSerial.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\IssuingDistributionPoint.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\KeyPurposeId.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\KeyUsage.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\NameConstraints.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\NoticeReference.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\ObjectDigestInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\PolicyInformation.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\PolicyMappings.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\PolicyQualifierId.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\PolicyQualifierInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\PrivateKeyUsagePeriod.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\qualified\BiometricData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\qualified\ETSIQCObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\qualified\Iso4217CurrencyCode.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\qualified\MonetaryValue.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\qualified\QCStatement.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\qualified\RFC3739QCObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\qualified\SemanticsInformation.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\qualified\TypeOfBiometricData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\ReasonFlags.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\RoleSyntax.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\RSAPublicKeyStructure.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\sigi\NameOrPseudonym.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\sigi\PersonalData.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\sigi\SigIObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\SubjectDirectoryAttributes.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\SubjectKeyIdentifier.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\SubjectPublicKeyInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\Target.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\TargetInformation.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\Targets.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\TBSCertificateStructure.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\TBSCertList.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\Time.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\UserNotice.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\V1TBSCertificateGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\V2AttributeCertificateInfoGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\V2Form.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\V2TBSCertListGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\V3TBSCertificateGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\X509Attributes.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\X509CertificateStructure.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\X509DefaultEntryConverter.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\X509Extension.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\X509Extensions.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\X509ExtensionsGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\X509Name.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\X509NameEntryConverter.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\X509NameTokenizer.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x509\X509ObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\DHDomainParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\DHPublicKey.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\DHValidationParms.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\KeySpecificInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\OtherInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\X962NamedCurves.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\X962Parameters.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\X9Curve.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\X9ECParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\X9ECParametersHolder.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\X9ECPoint.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\X9FieldElement.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\X9FieldID.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\X9IntegerConverter.cs" />
+    <Compile Include="iTextSharp\srcbc\asn1\x9\X9ObjectIdentifiers.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\ArmoredInputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\ArmoredOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\attr\ImageAttrib.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\BcpgInputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\BcpgObject.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\BcpgOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\CompressedDataPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\CompressionAlgorithmTags.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\ContainedPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\Crc24.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\DsaPublicBcpgKey.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\DsaSecretBcpgKey.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\ElGamalPublicBcpgKey.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\ElGamalSecretBcpgKey.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\ExperimentalPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\HashAlgorithmTags.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\IBcpgKey.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\InputStreamPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\LiteralDataPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\MarkerPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\ModDetectionCodePacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\MPInteger.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\OnePassSignaturePacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\OutputStreamPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\Packet.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\PacketTags.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\PublicKeyAlgorithmTags.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\PublicKeyEncSessionPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\PublicKeyPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\PublicSubkeyPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\RsaPublicBcpgKey.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\RsaSecretBcpgKey.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\S2k.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\SecretKeyPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\SecretSubkeyPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\SignaturePacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\SignatureSubpacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\SignatureSubpacketsReader.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\SignatureSubpacketTags.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\EmbeddedSignature.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\Exportable.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\IssuerKeyId.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\KeyExpirationTime.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\KeyFlags.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\NotationData.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\PreferredAlgorithms.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\PrimaryUserId.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\Revocable.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\RevocationKey.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\RevocationKeyTags.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\RevocationReason.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\RevocationReasonTags.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\SignatureCreationTime.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\SignatureExpirationTime.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\SignerUserId.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\sig\TrustSignature.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\SymmetricEncDataPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\SymmetricEncIntegrityPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\SymmetricKeyAlgorithmTags.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\SymmetricKeyEncSessionPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\TrustPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\UserAttributePacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\UserAttributeSubpacket.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\UserAttributeSubpacketsReader.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\UserAttributeSubpacketTags.cs" />
+    <Compile Include="iTextSharp\srcbc\bcpg\UserIdPacket.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\BaseDigestCalculator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSAttributeTableGenerationException.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSAttributeTableGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSAuthenticatedData.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSAuthenticatedDataGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSAuthenticatedDataParser.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSAuthenticatedDataStreamGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSAuthenticatedGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSAuthEnvelopedData.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSAuthEnvelopedGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSCompressedData.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSCompressedDataGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSCompressedDataParser.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSCompressedDataStreamGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSContentInfoParser.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSEnvelopedData.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSEnvelopedDataGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSEnvelopedDataParser.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSEnvelopedDataStreamGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSEnvelopedGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSEnvelopedHelper.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSException.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSPBEKey.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSProcessable.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSProcessableByteArray.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSProcessableFile.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSProcessableInputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSReadable.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSSecureReadable.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSSignedData.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSSignedDataGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSSignedDataParser.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSSignedDataStreamGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSSignedGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSSignedHelper.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSStreamException.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSTypedStream.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CMSUtils.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\CounterSignatureDigestCalculator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\DefaultAuthenticatedAttributeTableGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\DefaultSignedAttributeTableGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\DigOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\IDigestCalculator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\KEKRecipientInfoGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\KEKRecipientInformation.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\KeyAgreeRecipientInfoGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\KeyAgreeRecipientInformation.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\KeyTransRecipientInfoGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\KeyTransRecipientInformation.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\MacOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\NullOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\OriginatorId.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\OriginatorInfoGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\OriginatorInformation.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\PasswordRecipientInfoGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\PasswordRecipientInformation.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\PKCS5Scheme2PBEKey.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\PKCS5Scheme2UTF8PBEKey.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\RecipientId.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\RecipientInfoGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\RecipientInformation.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\RecipientInformationStore.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\SignerId.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\SignerInfoGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\SignerInformation.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\SignerInformationStore.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\SigOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\cms\SimpleAttributeTableGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\DHAgreement.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\DHBasicAgreement.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\ECDHBasicAgreement.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\ECDHCBasicAgreement.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\ECDHWithKdfBasicAgreement.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\ECMqvBasicAgreement.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\ECMqvWithKdfBasicAgreement.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\kdf\DHKdfParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\kdf\DHKekGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\kdf\ECDHKekGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\srp\SRP6Client.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\srp\SRP6Server.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\srp\SRP6Utilities.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\agreement\srp\SRP6VerifierGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\AsymmetricCipherKeyPair.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\AsymmetricKeyParameter.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\BufferedAeadBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\BufferedAsymmetricBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\BufferedBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\BufferedCipherBase.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\BufferedIesCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\BufferedStreamCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\CipherKeyGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\CryptoException.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\DataLengthException.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\GeneralDigest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\GOST3411Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\LongDigest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\MD2Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\MD4Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\MD5Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\NullDigest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\RipeMD128Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\RipeMD160Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\RipeMD256Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\RipeMD320Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\Sha1Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\Sha224Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\Sha256Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\Sha384Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\SHA3Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\Sha512Digest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\Sha512tDigest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\ShortenedDigest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\TigerDigest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\digests\WhirlpoolDigest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\encodings\ISO9796d1Encoding.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\encodings\OaepEncoding.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\encodings\Pkcs1Encoding.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\AesEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\AesFastEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\AesLightEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\AesWrapEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\BlowfishEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\CamelliaEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\CamelliaLightEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\CamelliaWrapEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\Cast5Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\Cast6Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\DesEdeEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\DesEdeWrapEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\DesEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\ElGamalEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\GOST28147Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\HC128Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\HC256Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\IdeaEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\IesEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\ISAACEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\NaccacheSternEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\NoekeonEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\NullEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RC2Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RC2WrapEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RC4Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RC532Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RC564Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RC6Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RFC3211WrapEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RFC3394WrapEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RijndaelEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RSABlindedEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RSABlindingEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RSACoreEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\RsaEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\Salsa20Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\SEEDEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\SEEDWrapEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\SerpentEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\SkipjackEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\TEAEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\TwofishEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\VMPCEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\VMPCKSA3Engine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\engines\XTEAEngine.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\BaseKdfBytesGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\DesEdeKeyGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\DesKeyGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\DHBasicKeyPairGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\DHKeyGeneratorHelper.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\DHKeyPairGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\DHParametersGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\DHParametersHelper.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\DsaKeyPairGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\DsaParametersGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\ECKeyPairGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\ElGamalKeyPairGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\ElGamalParametersGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\GOST3410KeyPairGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\GOST3410ParametersGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\Kdf1BytesGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\Kdf2BytesGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\Mgf1BytesGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\NaccacheSternKeyPairGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\OpenSSLPBEParametersGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\Pkcs12ParametersGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\Pkcs5S1ParametersGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\Pkcs5S2ParametersGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\RSABlindingFactorGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\RsaKeyPairGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\generators\SCrypt.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IAsymmetricBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IAsymmetricCipherKeyPairGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IBasicAgreement.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IBufferedCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\ICipherParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IDerivationFunction.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IDerivationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IDigest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IDSA.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IMac.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\InvalidCipherTextException.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\io\CipherStream.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\io\DigestStream.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\io\MacStream.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\io\SignerStream.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\ISigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\ISignerWithRecovery.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IStreamCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\IWrapper.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\KeyGenerationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\macs\CbcBlockCipherMac.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\macs\CfbBlockCipherMac.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\macs\CMac.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\macs\GOST28147Mac.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\macs\HMac.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\macs\ISO9797Alg3Mac.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\macs\SipHash.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\macs\VMPCMac.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\MaxBytesExceededException.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\CbcBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\CcmBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\CfbBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\CtsBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\EAXBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\GCMBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\gcm\BasicGcmExponentiator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\gcm\BasicGcmMultiplier.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\gcm\GcmUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\gcm\IGcmExponentiator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\gcm\IGcmMultiplier.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\gcm\Tables1kGcmExponentiator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\gcm\Tables64kGcmMultiplier.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\gcm\Tables8kGcmMultiplier.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\GOFBBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\IAeadBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\OCBBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\OfbBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\OpenPgpCfbBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\modes\SicBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\paddings\BlockCipherPadding.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\paddings\ISO10126d2Padding.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\paddings\ISO7816d4Padding.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\paddings\PaddedBufferedBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\paddings\Pkcs7Padding.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\paddings\TbcPadding.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\paddings\X923Padding.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\paddings\ZeroBytePadding.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\AEADParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\CcmParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DesEdeParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DesParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DHKeyGenerationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DHKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DHParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DHPrivateKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DHPublicKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DHValidationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DsaKeyGenerationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DsaKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DSAParameterGenerationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DsaParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DsaPrivateKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DsaPublicKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\DsaValidationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ECDomainParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ECKeyGenerationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ECKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ECPrivateKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ECPublicKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ElGamalKeyGenerationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ElGamalKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ElGamalParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ElGamalPrivateKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ElGamalPublicKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\GOST3410KeyGenerationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\GOST3410KeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\GOST3410Parameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\GOST3410PrivateKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\GOST3410PublicKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\GOST3410ValidationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\IesParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\IesWithCipherParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ISO18033KDFParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\KdfParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\KeyParameter.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\MgfParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\MqvPrivateParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\MqvPublicParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\NaccacheSternKeyGenerationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\NaccacheSternKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\NaccacheSternPrivateKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ParametersWithIV.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ParametersWithRandom.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ParametersWithSalt.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\ParametersWithSBox.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\RC2Parameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\RC5Parameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\RSABlindingParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\RsaKeyGenerationParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\RsaKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\parameters\RsaPrivateCrtKeyParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\PbeParametersGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\prng\CryptoApiRandomGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\prng\DigestRandomGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\prng\IRandomGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\prng\ReversedWindowGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\prng\ThreadedSeedGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\prng\VMPCRandomGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\DsaDigestSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\DsaSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\ECDsaSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\ECGOST3410Signer.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\ECNRSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\GenericSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\GOST3410DigestSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\GOST3410Signer.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\Iso9796d2PssSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\Iso9796d2Signer.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\PssSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\signers\RsaDigestSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\StreamBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\AlertDescription.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\AlertLevel.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\AlwaysValidVerifyer.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\ByteQueue.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\Certificate.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\CertificateRequest.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\CipherSuite.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\ClientCertificateType.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\CombinedHash.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\CompressionMethod.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\ContentType.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\DefaultTlsAgreementCredentials.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\DefaultTlsCipherFactory.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\DefaultTlsClient.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\DefaultTlsSignerCredentials.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\DigestAlgorithm.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\ECCurveType.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\ECPointFormat.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\EncryptionAlgorithm.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\ExtensionType.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\HandshakeType.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\ICertificateVerifyer.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\KeyExchangeAlgorithm.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\LegacyTlsAuthentication.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\LegacyTlsClient.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\NamedCurve.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\PskTlsClient.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\RecordStream.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\SecurityParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\SrpTlsClient.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\Ssl3Mac.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsAgreementCredentials.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsAuthentication.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsBlockCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsCipherFactory.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsClient.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsClientContext.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsClientContextImpl.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsCompression.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsCredentials.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsDeflateCompression.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsDheKeyExchange.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsDHKeyExchange.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsDHUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsDsaSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsDssSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsECDheKeyExchange.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsECDHKeyExchange.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsECDsaSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsException.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsFatalAlert.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsKeyExchange.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsMac.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsNullCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsNullCompression.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsProtocolHandler.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsPskIdentity.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsPskKeyExchange.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsRsaKeyExchange.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsRsaSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsRsaUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsSigner.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsSignerCredentials.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsSrpKeyExchange.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsStream.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsStreamCipher.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\tls\TlsUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\crypto\util\Pack.cs" />
+    <Compile Include="iTextSharp\srcbc\math\BigInteger.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\abc\SimpleBigDecimal.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\abc\Tnaf.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\abc\ZTauElement.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\ECAlgorithms.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\ECCurve.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\ECFieldElement.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\ECPoint.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\IntArray.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\multiplier\ECMultiplier.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\multiplier\FpNafMultiplier.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\multiplier\PreCompInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\multiplier\ReferenceMultiplier.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\multiplier\WNafMultiplier.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\multiplier\WNafPreCompInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\multiplier\WTauNafMultiplier.cs" />
+    <Compile Include="iTextSharp\srcbc\math\ec\multiplier\WTauNafPreCompInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\BasicOCSPResp.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\BasicOCSPRespGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\CertificateID.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\CertificateStatus.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\OCSPException.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\OCSPReq.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\OCSPReqGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\OCSPResp.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\OCSPRespGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\OCSPRespStatus.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\OCSPUtil.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\Req.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\RespData.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\RespID.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\RevokedStatus.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\SingleResp.cs" />
+    <Compile Include="iTextSharp\srcbc\ocsp\UnknownStatus.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\IStreamGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpCompressedData.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpCompressedDataGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpDataValidationException.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpEncryptedData.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpEncryptedDataGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpEncryptedDataList.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpException.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpExperimental.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpKeyFlags.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpKeyPair.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PGPKeyRing.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpKeyRingGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpKeyValidationException.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpLiteralData.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpLiteralDataGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpMarker.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PGPObject.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpObjectFactory.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpOnePassSignature.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpOnePassSignatureList.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpPbeEncryptedData.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpPrivateKey.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpPublicKey.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpPublicKeyEncryptedData.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpPublicKeyRing.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpPublicKeyRingBundle.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpSecretKey.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpSecretKeyRing.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpSecretKeyRingBundle.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpSignature.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpSignatureGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpSignatureList.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpSignatureSubpacketGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpSignatureSubpacketVector.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpUserAttributeSubpacketVector.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PGPUserAttributeSubpacketVectorGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\PgpV3SignatureGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\openpgp\WrappedGeneratorStream.cs" />
+    <Compile Include="iTextSharp\srcbc\openssl\EncryptionException.cs" />
+    <Compile Include="iTextSharp\srcbc\openssl\IPasswordFinder.cs" />
+    <Compile Include="iTextSharp\srcbc\openssl\MiscPemGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\openssl\PasswordException.cs" />
+    <Compile Include="iTextSharp\srcbc\openssl\PEMException.cs" />
+    <Compile Include="iTextSharp\srcbc\openssl\PEMReader.cs" />
+    <Compile Include="iTextSharp\srcbc\openssl\PEMUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\openssl\PEMWriter.cs" />
+    <Compile Include="iTextSharp\srcbc\openssl\Pkcs8Generator.cs" />
+    <Compile Include="iTextSharp\srcbc\pkcs\AsymmetricKeyEntry.cs" />
+    <Compile Include="iTextSharp\srcbc\pkcs\EncryptedPrivateKeyInfoFactory.cs" />
+    <Compile Include="iTextSharp\srcbc\pkcs\Pkcs10CertificationRequest.cs" />
+    <Compile Include="iTextSharp\srcbc\pkcs\Pkcs10CertificationRequestDelaySigned.cs" />
+    <Compile Include="iTextSharp\srcbc\pkcs\Pkcs12Entry.cs" />
+    <Compile Include="iTextSharp\srcbc\pkcs\Pkcs12Store.cs" />
+    <Compile Include="iTextSharp\srcbc\pkcs\PKCS12StoreBuilder.cs" />
+    <Compile Include="iTextSharp\srcbc\pkcs\Pkcs12Utilities.cs" />
+    <Compile Include="iTextSharp\srcbc\pkcs\PrivateKeyInfoFactory.cs" />
+    <Compile Include="iTextSharp\srcbc\pkcs\X509CertificateEntry.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\CertStatus.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixAttrCertChecker.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixAttrCertPathBuilder.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixAttrCertPathValidator.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixBuilderParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixCertPath.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixCertPathBuilder.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixCertPathBuilderException.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixCertPathBuilderResult.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixCertPathChecker.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixCertPathValidator.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixCertPathValidatorException.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixCertPathValidatorResult.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixCertPathValidatorUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixCrlUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixNameConstraintValidator.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixNameConstraintValidatorException.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\PkixPolicyNode.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\ReasonsMask.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\Rfc3280CertPathUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\Rfc3281CertPathUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\pkix\TrustAnchor.cs" />
+    <Compile Include="iTextSharp\srcbc\security\AgreementUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\security\cert\CertificateEncodingException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\cert\CertificateException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\cert\CertificateExpiredException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\cert\CertificateNotYetValidException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\cert\CertificateParsingException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\cert\CrlException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\CipherUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\security\DigestUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\security\DotNetUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\security\GeneralSecurityException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\GeneratorUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\security\InvalidKeyException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\InvalidParameterException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\KeyException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\MacUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\security\NoSuchAlgorithmException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\ParameterUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\security\PbeUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\security\PrivateKeyFactory.cs" />
+    <Compile Include="iTextSharp\srcbc\security\PublicKeyFactory.cs" />
+    <Compile Include="iTextSharp\srcbc\security\SecureRandom.cs" />
+    <Compile Include="iTextSharp\srcbc\security\SecurityUtilityException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\SignatureException.cs" />
+    <Compile Include="iTextSharp\srcbc\security\SignerUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\security\WrapperUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\GenTimeAccuracy.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TimeStampRequest.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TimeStampRequestGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TimeStampResponse.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TimeStampResponseGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TimeStampToken.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TimeStampTokenGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TimeStampTokenInfo.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TSPAlgorithms.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TSPException.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TSPUtil.cs" />
+    <Compile Include="iTextSharp\srcbc\tsp\TSPValidationException.cs" />
+    <Compile Include="iTextSharp\srcbc\util\Arrays.cs" />
+    <Compile Include="iTextSharp\srcbc\util\BigIntegers.cs" />
+    <Compile Include="iTextSharp\srcbc\util\bzip2\BZip2Constants.cs" />
+    <Compile Include="iTextSharp\srcbc\util\bzip2\CBZip2InputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\bzip2\CBZip2OutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\bzip2\CRC.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\CollectionUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\EmptyEnumerable.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\EnumerableProxy.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\HashSet.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\ISet.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\LinkedDictionary.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\UnmodifiableDictionary.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\UnmodifiableDictionaryProxy.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\UnmodifiableList.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\UnmodifiableListProxy.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\UnmodifiableSet.cs" />
+    <Compile Include="iTextSharp\srcbc\util\collections\UnmodifiableSetProxy.cs" />
+    <Compile Include="iTextSharp\srcbc\util\date\DateTimeObject.cs" />
+    <Compile Include="iTextSharp\srcbc\util\date\DateTimeUtilities.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\Base64.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\Base64Encoder.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\BufferedDecoder.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\BufferedEncoder.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\Hex.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\HexEncoder.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\HexTranslator.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\IEncoder.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\Translator.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\UrlBase64.cs" />
+    <Compile Include="iTextSharp\srcbc\util\encoders\UrlBase64Encoder.cs" />
+    <Compile Include="iTextSharp\srcbc\util\Enums.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\BaseInputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\BaseOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\pem\PemGenerationException.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\pem\PemHeader.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\pem\PemObject.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\pem\PemObjectGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\pem\PemObjectParser.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\pem\PemReader.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\pem\PemWriter.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\PushbackStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\StreamOverflowException.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\Streams.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\TeeInputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\io\TeeOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\net\IPAddress.cs" />
+    <Compile Include="iTextSharp\srcbc\util\Platform.cs" />
+    <Compile Include="iTextSharp\srcbc\util\Strings.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\Adler32.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\Deflate.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\InfBlocks.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\InfCodes.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\Inflate.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\InfTree.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\JZlib.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\StaticTree.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\Tree.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\ZDeflaterOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\ZInflaterInputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\ZInputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\ZOutputStream.cs" />
+    <Compile Include="iTextSharp\srcbc\util\zlib\ZStream.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\AttributeCertificateHolder.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\AttributeCertificateIssuer.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\extension\AuthorityKeyIdentifierStructure.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\extension\SubjectKeyIdentifierStructure.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\extension\X509ExtensionUtil.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\IX509AttributeCertificate.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\IX509Extension.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\PEMParser.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\PrincipalUtil.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\IX509Selector.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\IX509Store.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\IX509StoreParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\NoSuchStoreException.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\X509AttrCertStoreSelector.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\X509CertPairStoreSelector.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\X509CertStoreSelector.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\X509CollectionStore.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\X509CollectionStoreParameters.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\X509CrlStoreSelector.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\X509StoreException.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\store\X509StoreFactory.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\SubjectPublicKeyInfoFactory.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509AttrCertParser.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509Attribute.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509Certificate.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509CertificatePair.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509CertificateParser.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509CertPairParser.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509Crl.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509CrlEntry.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509CrlParser.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509ExtensionBase.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509KeyUsage.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509SignatureUtil.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509Utilities.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509V1CertificateGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509V2AttributeCertificate.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509V2AttributeCertificateGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509V2CRLGenerator.cs" />
+    <Compile Include="iTextSharp\srcbc\x509\X509V3CertificateGenerator.cs" />
+    <Compile Include="iTextSharp\System\util\collections\HashSet2.cs" />
+    <Compile Include="iTextSharp\System\util\collections\LinkedDictionary.cs" />
+    <Compile Include="iTextSharp\System\util\collections\OrderedTree.cs" />
+    <Compile Include="iTextSharp\System\util\collections\ReadOnlyDictionary.cs" />
+    <Compile Include="iTextSharp\System\util\FilterStream.cs" />
+    <Compile Include="iTextSharp\System\util\ListIterator.cs" />
+    <Compile Include="iTextSharp\System\util\Properties.cs" />
+    <Compile Include="iTextSharp\System\util\PushbackStream.cs" />
+    <Compile Include="iTextSharp\System\util\RectangleJ.cs" />
+    <Compile Include="iTextSharp\System\util\StringTokenizer.cs" />
+    <Compile Include="iTextSharp\System\util\Util.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\Adler32.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\Deflate.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\InfBlocks.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\InfCodes.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\Inflate.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\InfTree.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\JZlib.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\StaticTree.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\Tree.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\ZDeflaterOutputStream.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\ZInflaterInputStream.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\ZInputStream.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\ZOutputStream.cs" />
+    <Compile Include="iTextSharp\System\util\zlib\ZStream.cs" />
+    <Compile Include="KeyboardShortcut.cs" />
+    <Compile Include="KeyboardShortcutSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KeyboardShortcutSettingForm.Designer.cs">
+      <DependentUpon>KeyboardShortcutSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LibAPNG\APNG.cs" />
+    <Compile Include="LibAPNG\Chunks\acTLChunk.cs" />
+    <Compile Include="LibAPNG\Chunks\Chunk.cs" />
+    <Compile Include="LibAPNG\Chunks\fcTLChunk.cs" />
+    <Compile Include="LibAPNG\Chunks\fdATChunk.cs" />
+    <Compile Include="LibAPNG\Chunks\IDATChunk.cs" />
+    <Compile Include="LibAPNG\Chunks\IENDChunk.cs" />
+    <Compile Include="LibAPNG\Chunks\IHDRChunk.cs" />
+    <Compile Include="LibAPNG\Chunks\OtherChunk.cs" />
+    <Compile Include="LibAPNG\CrcHelper.cs" />
+    <Compile Include="LibAPNG\Frame.cs" />
+    <Compile Include="LibAPNG\Helper.cs" />
+    <Compile Include="LibAPNG\StreamExtensions.cs" />
+    <Compile Include="LongVectorImageResizer.cs" />
+    <Compile Include="MessageForm.cs" />
+    <Compile Include="MiniControlTouchGesture.cs" />
+    <Compile Include="MouseGesture.cs" />
+    <Compile Include="MouseGestureSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MouseGestureSettingForm.Designer.cs">
+      <DependentUpon>MouseGestureSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MovieThumbnailLoader.cs" />
+    <Compile Include="NgenManager.cs" />
+    <Compile Include="QuickGraphic.cs" />
+    <Compile Include="RiosFastPdfImageDecoder.cs" />
+    <Compile Include="RiosFastPsdDecoder.cs" />
+    <Compile Include="RiosTrackBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="SevenZipExtractor\ArchiveFile.cs" />
+    <Compile Include="SevenZipExtractor\ArchiveFileCallback.cs" />
+    <Compile Include="SevenZipExtractor\ArchiveStreamCallback.cs" />
+    <Compile Include="SevenZipExtractor\Entry.cs" />
+    <Compile Include="SevenZipExtractor\Formats.cs" />
+    <Compile Include="SevenZipExtractor\IArchiveExtractCallback.cs" />
+    <Compile Include="SevenZipExtractor\Kernel32Dll.cs" />
+    <Compile Include="SevenZipExtractor\KnownSevenZipFormat.cs" />
+    <Compile Include="SevenZipExtractor\SafeLibraryHandle.cs" />
+    <Compile Include="SevenZipExtractor\SevenZipException.cs" />
+    <Compile Include="SevenZipExtractor\SevenZipHandle.cs" />
+    <Compile Include="SevenZipExtractor\SevenZipInterface.cs" />
+    <Compile Include="SharpCompress\Archives\AbstractArchive.cs" />
+    <Compile Include="SharpCompress\Archives\AbstractWritableArchive.cs" />
+    <Compile Include="SharpCompress\Archives\ArchiveFactory.cs" />
+    <Compile Include="SharpCompress\Archives\GZip\GZipArchive.cs" />
+    <Compile Include="SharpCompress\Archives\GZip\GZipArchiveEntry.cs" />
+    <Compile Include="SharpCompress\Archives\GZip\GZipWritableArchiveEntry.cs" />
+    <Compile Include="SharpCompress\Archives\IArchive.cs" />
+    <Compile Include="SharpCompress\Archives\IArchiveEntry.cs" />
+    <Compile Include="SharpCompress\Archives\IArchiveEntryExtensions.cs" />
+    <Compile Include="SharpCompress\Archives\IArchiveExtensions.cs" />
+    <Compile Include="SharpCompress\Archives\IArchiveExtractionListener.cs" />
+    <Compile Include="SharpCompress\Archives\IWritableArchive.cs" />
+    <Compile Include="SharpCompress\Archives\IWritableArchiveEntry.cs" />
+    <Compile Include="SharpCompress\Archives\IWritableArchiveExtensions.cs" />
+    <Compile Include="SharpCompress\Archives\Rar\FileInfoRarArchiveVolume.cs" />
+    <Compile Include="SharpCompress\Archives\Rar\FileInfoRarFilePart.cs" />
+    <Compile Include="SharpCompress\Archives\Rar\RarArchive.cs" />
+    <Compile Include="SharpCompress\Archives\Rar\RarArchive.Extensions.cs" />
+    <Compile Include="SharpCompress\Archives\Rar\RarArchiveEntry.cs" />
+    <Compile Include="SharpCompress\Archives\Rar\RarArchiveEntryFactory.cs" />
+    <Compile Include="SharpCompress\Archives\Rar\RarArchiveVolumeFactory.cs" />
+    <Compile Include="SharpCompress\Archives\Rar\SeekableFilePart.cs" />
+    <Compile Include="SharpCompress\Archives\Rar\StreamRarArchiveVolume.cs" />
+    <Compile Include="SharpCompress\Archives\SevenZip\SevenZipArchive.cs" />
+    <Compile Include="SharpCompress\Archives\SevenZip\SevenZipArchiveEntry.cs" />
+    <Compile Include="SharpCompress\Archives\Tar\TarArchive.cs" />
+    <Compile Include="SharpCompress\Archives\Tar\TarArchiveEntry.cs" />
+    <Compile Include="SharpCompress\Archives\Tar\TarWritableArchiveEntry.cs" />
+    <Compile Include="SharpCompress\Archives\Zip\ZipArchive.cs" />
+    <Compile Include="SharpCompress\Archives\Zip\ZipArchiveEntry.cs" />
+    <Compile Include="SharpCompress\Archives\Zip\ZipWritableArchiveEntry.cs" />
+    <Compile Include="SharpCompress\Common\ArchiveEncoding.cs" />
+    <Compile Include="SharpCompress\Common\ArchiveException.cs" />
+    <Compile Include="SharpCompress\Common\ArchiveExtractionEventArgs.cs" />
+    <Compile Include="SharpCompress\Common\ArchiveType.cs" />
+    <Compile Include="SharpCompress\Common\CompressedBytesReadEventArgs.cs" />
+    <Compile Include="SharpCompress\Common\CompressionType.cs" />
+    <Compile Include="SharpCompress\Common\CryptographicException.cs" />
+    <Compile Include="SharpCompress\Common\Entry.cs" />
+    <Compile Include="SharpCompress\Common\EntryStream.cs" />
+    <Compile Include="SharpCompress\Common\ExtractionException.cs" />
+    <Compile Include="SharpCompress\Common\FilePart.cs" />
+    <Compile Include="SharpCompress\Common\FilePartExtractionBeginEventArgs.cs" />
+    <Compile Include="SharpCompress\Common\FlagUtility.cs" />
+    <Compile Include="SharpCompress\Common\GZip\GZipEntry.cs" />
+    <Compile Include="SharpCompress\Common\GZip\GZipFilePart.cs" />
+    <Compile Include="SharpCompress\Common\GZip\GZipVolume.cs" />
+    <Compile Include="SharpCompress\Common\IEntry.cs" />
+    <Compile Include="SharpCompress\Common\IEntry.Extensions.cs" />
+    <Compile Include="SharpCompress\Common\IExtractionListener.cs" />
+    <Compile Include="SharpCompress\Common\IncompleteArchiveException.cs" />
+    <Compile Include="SharpCompress\Common\InvalidFormatException.cs" />
+    <Compile Include="SharpCompress\Common\IVolume.cs" />
+    <Compile Include="SharpCompress\Common\MultipartStreamRequiredException.cs" />
+    <Compile Include="SharpCompress\Common\MultiVolumeExtractionException.cs" />
+    <Compile Include="SharpCompress\Common\OptionsBase.cs" />
+    <Compile Include="SharpCompress\Common\PasswordProtectedException.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\ArchiveHeader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\AVHeader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\CommentHeader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\EndArchiveHeader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\FileHeader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\FileNameDecoder.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\Flags.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\MarkHeader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\NewSubHeader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\ProtectHeader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\RarHeader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\RarHeaderFactory.cs" />
+    <Compile Include="SharpCompress\Common\Rar\Headers\SignHeader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\RarCryptoBinaryReader.cs" />
+    <Compile Include="SharpCompress\Common\Rar\RarCryptoWrapper.cs" />
+    <Compile Include="SharpCompress\Common\Rar\RarEntry.cs" />
+    <Compile Include="SharpCompress\Common\Rar\RarFilePart.cs" />
+    <Compile Include="SharpCompress\Common\Rar\RarRijndael.cs" />
+    <Compile Include="SharpCompress\Common\Rar\RarVolume.cs" />
+    <Compile Include="SharpCompress\Common\ReaderExtractionEventArgs.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\ArchiveDatabase.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\ArchiveReader.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\CBindPair.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\CCoderInfo.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\CFileItem.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\CFolder.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\CMethodId.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\CStreamSwitch.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\DataReader.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\SevenZipEntry.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\SevenZipFilePart.cs" />
+    <Compile Include="SharpCompress\Common\SevenZip\SevenZipVolume.cs" />
+    <Compile Include="SharpCompress\Common\Tar\Headers\EntryType.cs" />
+    <Compile Include="SharpCompress\Common\Tar\Headers\TarHeader.cs" />
+    <Compile Include="SharpCompress\Common\Tar\TarEntry.cs" />
+    <Compile Include="SharpCompress\Common\Tar\TarFilePart.cs" />
+    <Compile Include="SharpCompress\Common\Tar\TarHeaderFactory.cs" />
+    <Compile Include="SharpCompress\Common\Tar\TarReadOnlySubStream.cs" />
+    <Compile Include="SharpCompress\Common\Tar\TarVolume.cs" />
+    <Compile Include="SharpCompress\Common\Volume.cs" />
+    <Compile Include="SharpCompress\Common\Zip\Headers\DirectoryEndHeader.cs" />
+    <Compile Include="SharpCompress\Common\Zip\Headers\DirectoryEntryHeader.cs" />
+    <Compile Include="SharpCompress\Common\Zip\Headers\HeaderFlags.cs" />
+    <Compile Include="SharpCompress\Common\Zip\Headers\IgnoreHeader.cs" />
+    <Compile Include="SharpCompress\Common\Zip\Headers\LocalEntryHeader.cs" />
+    <Compile Include="SharpCompress\Common\Zip\Headers\LocalEntryHeaderExtraFactory.cs" />
+    <Compile Include="SharpCompress\Common\Zip\Headers\SplitHeader.cs" />
+    <Compile Include="SharpCompress\Common\Zip\Headers\ZipFileEntry.cs" />
+    <Compile Include="SharpCompress\Common\Zip\Headers\ZipHeader.cs" />
+    <Compile Include="SharpCompress\Common\Zip\Headers\ZipHeaderType.cs" />
+    <Compile Include="SharpCompress\Common\Zip\PkwareTraditionalCryptoStream.cs" />
+    <Compile Include="SharpCompress\Common\Zip\PkwareTraditionalEncryptionData.cs" />
+    <Compile Include="SharpCompress\Common\Zip\SeekableZipFilePart.cs" />
+    <Compile Include="SharpCompress\Common\Zip\SeekableZipHeaderFactory.cs" />
+    <Compile Include="SharpCompress\Common\Zip\StreamingZipFilePart.cs" />
+    <Compile Include="SharpCompress\Common\Zip\StreamingZipHeaderFactory.cs" />
+    <Compile Include="SharpCompress\Common\Zip\WinzipAesCryptoStream.cs" />
+    <Compile Include="SharpCompress\Common\Zip\WinzipAesEncryptionData.cs" />
+    <Compile Include="SharpCompress\Common\Zip\WinzipAesKeySize.cs" />
+    <Compile Include="SharpCompress\Common\Zip\ZipCompressionMethod.cs" />
+    <Compile Include="SharpCompress\Common\Zip\ZipEntry.cs" />
+    <Compile Include="SharpCompress\Common\Zip\ZipFilePart.cs" />
+    <Compile Include="SharpCompress\Common\Zip\ZipHeaderFactory.cs" />
+    <Compile Include="SharpCompress\Common\Zip\ZipVolume.cs" />
+    <Compile Include="SharpCompress\Compressors\ADC\ADCBase.cs" />
+    <Compile Include="SharpCompress\Compressors\ADC\ADCStream.cs" />
+    <Compile Include="SharpCompress\Compressors\BZip2\BZip2Constants.cs" />
+    <Compile Include="SharpCompress\Compressors\BZip2\BZip2Stream.cs" />
+    <Compile Include="SharpCompress\Compressors\BZip2\CBZip2InputStream.cs" />
+    <Compile Include="SharpCompress\Compressors\BZip2\CBZip2OutputStream.cs" />
+    <Compile Include="SharpCompress\Compressors\BZip2\CRC.cs" />
+    <Compile Include="SharpCompress\Compressors\CompressionMode.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\CRC32.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\DeflateManager.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\DeflateStream.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\FlushType.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\GZipStream.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\Inflate.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\InfTree.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\Tree.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\Zlib.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\ZlibBaseStream.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\ZlibCodec.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\ZlibConstants.cs" />
+    <Compile Include="SharpCompress\Compressors\Deflate\ZlibStream.cs" />
+    <Compile Include="SharpCompress\Compressors\Filters\BCJ2Filter.cs" />
+    <Compile Include="SharpCompress\Compressors\Filters\BCJFilter.cs" />
+    <Compile Include="SharpCompress\Compressors\Filters\Filter.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\AesDecoderStream.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\Bcj2DecoderStream.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\BitVector.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\CRC.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\DecoderStream.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\ICoder.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\Log.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\LZipStream.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\LzmaBase.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\LzmaDecoder.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\LzmaEncoder.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\LzmaEncoderProperties.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\LzmaStream.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\LZ\CRC.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\LZ\LzBinTree.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\LZ\LzInWindow.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\LZ\LzOutWindow.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\RangeCoder\RangeCoder.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\RangeCoder\RangeCoderBit.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\RangeCoder\RangeCoderBitTree.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\Registry.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\Utilites\CrcBuilderStream.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\Utilites\CrcCheckStream.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\Utilites\IPasswordProvider.cs" />
+    <Compile Include="SharpCompress\Compressors\LZMA\Utilites\Utils.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\FreqData.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\ModelPPM.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\Pointer.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\PPMContext.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\RangeCoder.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\RarMemBlock.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\RarNode.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\SEE2Context.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\State.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\StateRef.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\H\SubAllocator.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\I1\Allocator.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\I1\Coder.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\I1\MemoryNode.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\I1\Model.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\I1\ModelRestorationMethod.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\I1\Pointer.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\I1\PpmContext.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\I1\PpmState.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\I1\See2Context.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\PpmdProperties.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\PpmdStream.cs" />
+    <Compile Include="SharpCompress\Compressors\PPMd\PpmdVersion.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\AudioVariables.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\BitDecode.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\CodeType.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\Compress.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\Decode.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\DistDecode.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\FilterType.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\LitDecode.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\LowDistDecode.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\MultDecode.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Decode\RepDecode.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\MultiVolumeReadOnlyStream.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\PPM\BlockTypes.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\RarCRC.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\RarStream.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Unpack.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Unpack15.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\Unpack20.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\UnpackFilter.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\UnpackUtility.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\BitInput.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\RarVM.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\VMCmdFlags.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\VMCommands.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\VMFlags.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\VMOpType.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\VMPreparedCommand.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\VMPreparedOperand.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\VMPreparedProgram.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\VMStandardFilters.cs" />
+    <Compile Include="SharpCompress\Compressors\Rar\VM\VMStandardFilterSignature.cs" />
+    <Compile Include="SharpCompress\Converters\DataConverter.cs" />
+    <Compile Include="SharpCompress\EnumExtensions.cs" />
+    <Compile Include="SharpCompress\IO\AppendingStream.cs" />
+    <Compile Include="SharpCompress\IO\BufferedSubStream.cs" />
+    <Compile Include="SharpCompress\IO\CountingWritableSubStream.cs" />
+    <Compile Include="SharpCompress\IO\ListeningStream.cs" />
+    <Compile Include="SharpCompress\IO\MarkingBinaryReader.cs" />
+    <Compile Include="SharpCompress\IO\NonDisposingStream.cs" />
+    <Compile Include="SharpCompress\IO\ReadOnlySubStream.cs" />
+    <Compile Include="SharpCompress\IO\RewindableStream.cs" />
+    <Compile Include="SharpCompress\IO\StreamingMode.cs" />
+    <Compile Include="SharpCompress\LazyReadOnlyCollection.cs" />
+    <Compile Include="SharpCompress\Readers\AbstractReader.cs" />
+    <Compile Include="SharpCompress\Readers\ExtractionOptions.cs" />
+    <Compile Include="SharpCompress\Readers\GZip\GZipReader.cs" />
+    <Compile Include="SharpCompress\Readers\IReader.cs" />
+    <Compile Include="SharpCompress\Readers\IReaderExtensions.cs" />
+    <Compile Include="SharpCompress\Readers\IReaderExtractionListener.cs" />
+    <Compile Include="SharpCompress\Readers\Rar\MultiVolumeRarReader.cs" />
+    <Compile Include="SharpCompress\Readers\Rar\NonSeekableStreamFilePart.cs" />
+    <Compile Include="SharpCompress\Readers\Rar\RarReader.cs" />
+    <Compile Include="SharpCompress\Readers\Rar\RarReaderEntry.cs" />
+    <Compile Include="SharpCompress\Readers\Rar\RarReaderVolume.cs" />
+    <Compile Include="SharpCompress\Readers\Rar\SingleVolumeRarReader.cs" />
+    <Compile Include="SharpCompress\Readers\ReaderFactory.cs" />
+    <Compile Include="SharpCompress\Readers\ReaderOptions.cs" />
+    <Compile Include="SharpCompress\Readers\Tar\TarReader.cs" />
+    <Compile Include="SharpCompress\Readers\Zip\ZipReader.cs" />
+    <Compile Include="SharpCompress\ReadOnlyCollection.cs" />
+    <Compile Include="SharpCompress\Utility.cs" />
+    <Compile Include="SharpCompress\Writers\AbstractWriter.cs" />
+    <Compile Include="SharpCompress\Writers\GZip\GZipWriter.cs" />
+    <Compile Include="SharpCompress\Writers\IWriter.cs" />
+    <Compile Include="SharpCompress\Writers\IWriterExtensions.cs" />
+    <Compile Include="SharpCompress\Writers\Tar\TarWriter.cs" />
+    <Compile Include="SharpCompress\Writers\WriterFactory.cs" />
+    <Compile Include="SharpCompress\Writers\WriterOptions.cs" />
+    <Compile Include="SharpCompress\Writers\Zip\ZipCentralDirectoryEntry.cs" />
+    <Compile Include="SharpCompress\Writers\Zip\ZipWriter.cs" />
+    <Compile Include="SharpCompress\Writers\Zip\ZipWriterEntryOptions.cs" />
+    <Compile Include="SharpCompress\Writers\Zip\ZipWriterOptions.cs" />
+    <Compile Include="ShellContextMenu.cs" />
+    <Compile Include="ShortcutResolver.cs" />
+    <Compile Include="SimplifiedKeyBoard.cs" />
+    <Compile Include="SmartFolder.cs" />
+    <Compile Include="SmartFolderSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SmartFolderSettingForm.Designer.cs">
+      <DependentUpon>SmartFolderSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Susie\Susie.cs" />
+    <Compile Include="Susie\SusiePlugin.cs" />
+    <Compile Include="Susie\Win32.cs" />
+    <Compile Include="SystemInfoManager.cs" />
+    <Compile Include="TagEditForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TagEditForm.Designer.cs">
+      <DependentUpon>TagEditForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TagLib\Aac\AudioHeader.cs" />
+    <Compile Include="TagLib\Aac\BitStream.cs" />
+    <Compile Include="TagLib\Aac\File.cs" />
+    <Compile Include="TagLib\Aiff\File.cs" />
+    <Compile Include="TagLib\Aiff\StreamHeader.cs" />
+    <Compile Include="TagLib\Ape\File.cs" />
+    <Compile Include="TagLib\Ape\Footer.cs" />
+    <Compile Include="TagLib\Ape\Item.cs" />
+    <Compile Include="TagLib\Ape\StreamHeader.cs" />
+    <Compile Include="TagLib\Ape\Tag.cs" />
+    <Compile Include="TagLib\Asf\ContentDescriptionObject.cs" />
+    <Compile Include="TagLib\Asf\ContentDescriptor.cs" />
+    <Compile Include="TagLib\Asf\DescriptionRecord.cs" />
+    <Compile Include="TagLib\Asf\ExtendedContentDescriptionObject.cs" />
+    <Compile Include="TagLib\Asf\File.cs" />
+    <Compile Include="TagLib\Asf\FilePropertiesObject.cs" />
+    <Compile Include="TagLib\Asf\Guid.cs" />
+    <Compile Include="TagLib\Asf\HeaderExtensionObject.cs" />
+    <Compile Include="TagLib\Asf\HeaderObject.cs" />
+    <Compile Include="TagLib\Asf\MetadataLibraryObject.cs" />
+    <Compile Include="TagLib\Asf\Object.cs" />
+    <Compile Include="TagLib\Asf\PaddingObject.cs" />
+    <Compile Include="TagLib\Asf\StreamPropertiesObject.cs" />
+    <Compile Include="TagLib\Asf\Tag.cs" />
+    <Compile Include="TagLib\Asf\UnknownObject.cs" />
+    <Compile Include="TagLib\Audible\File.cs" />
+    <Compile Include="TagLib\Audible\Tag.cs" />
+    <Compile Include="TagLib\ByteVector.cs" />
+    <Compile Include="TagLib\ByteVectorList.cs" />
+    <Compile Include="TagLib\CombinedTag.cs" />
+    <Compile Include="TagLib\CorruptFileException.cs" />
+    <Compile Include="TagLib\Debugger.cs" />
+    <Compile Include="TagLib\Dsf\File.cs" />
+    <Compile Include="TagLib\Dsf\StreamHeader.cs" />
+    <Compile Include="TagLib\File.cs" />
+    <Compile Include="TagLib\FileTypes.cs" />
+    <Compile Include="TagLib\Flac\Block.cs" />
+    <Compile Include="TagLib\Flac\BlockHeader.cs" />
+    <Compile Include="TagLib\Flac\File.cs" />
+    <Compile Include="TagLib\Flac\Picture.cs" />
+    <Compile Include="TagLib\Flac\StreamHeader.cs" />
+    <Compile Include="TagLib\Genres.cs" />
+    <Compile Include="TagLib\Gif\Codec.cs" />
+    <Compile Include="TagLib\Gif\File.cs" />
+    <Compile Include="TagLib\Gif\GifCommentTag.cs" />
+    <Compile Include="TagLib\ICodec.cs" />
+    <Compile Include="TagLib\Id3v1\StringHandler.cs" />
+    <Compile Include="TagLib\Id3v1\Tag.cs" />
+    <Compile Include="TagLib\Id3v2\ExtendedHeader.cs" />
+    <Compile Include="TagLib\Id3v2\Footer.cs" />
+    <Compile Include="TagLib\Id3v2\Frame.cs" />
+    <Compile Include="TagLib\Id3v2\FrameFactory.cs" />
+    <Compile Include="TagLib\Id3v2\FrameHeader.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\AttachedPictureFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\CommentsFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\GeneralEncapsulatedObjectFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\MusicCdIdentifierFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\PlayCountFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\PopularimeterFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\PrivateFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\RelativeVolumeFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\SynchronizedLyricsFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\TermsOfUseFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\TextIdentificationFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\UniqueFileIdentifierFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\UnknownFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\UnsynchronisedLyricsFrame.cs" />
+    <Compile Include="TagLib\Id3v2\Frames\UrlLinkFrame.cs" />
+    <Compile Include="TagLib\Id3v2\FrameTypes.cs" />
+    <Compile Include="TagLib\Id3v2\Header.cs" />
+    <Compile Include="TagLib\Id3v2\SynchData.cs" />
+    <Compile Include="TagLib\Id3v2\Tag.cs" />
+    <Compile Include="TagLib\IFD\Entries\ByteIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\ByteVectorIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\LongArrayIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\LongIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\MakernoteIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\Rational.cs" />
+    <Compile Include="TagLib\IFD\Entries\RationalArrayIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\RationalIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\SByteIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\ShortArrayIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\ShortIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\SLongArrayIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\SLongIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\SRational.cs" />
+    <Compile Include="TagLib\IFD\Entries\SRationalArrayIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\SRationalIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\SShortArrayIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\SShortIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\StringIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\StripOffsetsIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\SubIFDArrayEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\SubIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\ThumbnailDataIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\UndefinedIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\Entries\UserCommentIFDEntry.cs" />
+    <Compile Include="TagLib\IFD\IFDDirectory.cs" />
+    <Compile Include="TagLib\IFD\IFDEntry.cs" />
+    <Compile Include="TagLib\IFD\IFDEntryType.cs" />
+    <Compile Include="TagLib\IFD\IFDReader.cs" />
+    <Compile Include="TagLib\IFD\IFDRenderer.cs" />
+    <Compile Include="TagLib\IFD\IFDStructure.cs" />
+    <Compile Include="TagLib\IFD\IFDTag.cs" />
+    <Compile Include="TagLib\IFD\Makernotes\Nikon3MakernoteReader.cs" />
+    <Compile Include="TagLib\IFD\Tags\CanonFileInfoEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\CanonMakerNoteEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\CanonPictureInfoEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\ExifEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\GPSEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\IFDEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\IOPEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\Nikon3MakerNoteEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\NikonIsoInfoEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\NikonLensData3EntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\NikonPictureControlEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\NikonPreviewMakerNoteEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\NikonShotInfoEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\NikonVibrationReductionEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\NikonWorldTimeEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\OlympusMakerNoteEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\PanasonicMakerNoteEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\PentaxMakerNoteEntryTag.cs" />
+    <Compile Include="TagLib\IFD\Tags\SonyMakerNoteEntryTag.cs" />
+    <Compile Include="TagLib\IIM\IIMReader.cs" />
+    <Compile Include="TagLib\IIM\IIMTag.cs" />
+    <Compile Include="TagLib\Image\Codec.cs" />
+    <Compile Include="TagLib\Image\CombinedImageTag.cs" />
+    <Compile Include="TagLib\Image\File.cs" />
+    <Compile Include="TagLib\Image\ImageBlockFile.cs" />
+    <Compile Include="TagLib\Image\ImageOrientation.cs" />
+    <Compile Include="TagLib\Image\ImageTag.cs" />
+    <Compile Include="TagLib\Image\NoMetadata\File.cs" />
+    <Compile Include="TagLib\Jpeg\Codec.cs" />
+    <Compile Include="TagLib\Jpeg\File.cs" />
+    <Compile Include="TagLib\Jpeg\JpegCommentTag.cs" />
+    <Compile Include="TagLib\Jpeg\Marker.cs" />
+    <Compile Include="TagLib\Jpeg\Table.cs" />
+    <Compile Include="TagLib\ListBase.cs" />
+    <Compile Include="TagLib\Matroska\AudioTrack.cs" />
+    <Compile Include="TagLib\Matroska\EBMLElement.cs" />
+    <Compile Include="TagLib\Matroska\EBMLIDs.cs" />
+    <Compile Include="TagLib\Matroska\File.cs" />
+    <Compile Include="TagLib\Matroska\MatroskaIDs.cs" />
+    <Compile Include="TagLib\Matroska\SubtitleTrack.cs" />
+    <Compile Include="TagLib\Matroska\Tag.cs" />
+    <Compile Include="TagLib\Matroska\Track.cs" />
+    <Compile Include="TagLib\Matroska\VideoTrack.cs" />
+    <Compile Include="TagLib\Mpc\File.cs" />
+    <Compile Include="TagLib\Mpc\StreamHeader.cs" />
+    <Compile Include="TagLib\Mpeg4\AppleTag.cs" />
+    <Compile Include="TagLib\Mpeg4\Box.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\AppleAdditionalInfoBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\AppleAnnotationBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\AppleDataBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\AppleElementaryStreamDescriptor.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\AppleItemListBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\FullBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoAudioSampleEntry.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoChunkLargeOffsetBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoChunkOffsetBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoFreeSpaceBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoHandlerBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoMetaBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoMovieHeaderBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoSampleDescriptionBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoSampleEntry.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoSampleTableBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoUserDataBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\IsoVisualSampleEntry.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\TextBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\UnknownBox.cs" />
+    <Compile Include="TagLib\Mpeg4\Boxes\UrlBox.cs" />
+    <Compile Include="TagLib\Mpeg4\BoxFactory.cs" />
+    <Compile Include="TagLib\Mpeg4\BoxHeader.cs" />
+    <Compile Include="TagLib\Mpeg4\BoxTypes.cs" />
+    <Compile Include="TagLib\Mpeg4\File.cs" />
+    <Compile Include="TagLib\Mpeg4\FileParser.cs" />
+    <Compile Include="TagLib\Mpeg\AudioFile.cs" />
+    <Compile Include="TagLib\Mpeg\AudioHeader.cs" />
+    <Compile Include="TagLib\Mpeg\File.cs" />
+    <Compile Include="TagLib\Mpeg\VBRIHeader.cs" />
+    <Compile Include="TagLib\Mpeg\VideoHeader.cs" />
+    <Compile Include="TagLib\Mpeg\XingHeader.cs" />
+    <Compile Include="TagLib\NonContainer\EndTag.cs" />
+    <Compile Include="TagLib\NonContainer\File.cs" />
+    <Compile Include="TagLib\NonContainer\StartTag.cs" />
+    <Compile Include="TagLib\NonContainer\Tag.cs" />
+    <Compile Include="TagLib\Ogg\Bitstream.cs" />
+    <Compile Include="TagLib\Ogg\Codec.cs" />
+    <Compile Include="TagLib\Ogg\Codecs\Opus.cs" />
+    <Compile Include="TagLib\Ogg\Codecs\Theora.cs" />
+    <Compile Include="TagLib\Ogg\Codecs\Vorbis.cs" />
+    <Compile Include="TagLib\Ogg\File.cs" />
+    <Compile Include="TagLib\Ogg\GroupedComment.cs" />
+    <Compile Include="TagLib\Ogg\Page.cs" />
+    <Compile Include="TagLib\Ogg\PageHeader.cs" />
+    <Compile Include="TagLib\Ogg\Paginator.cs" />
+    <Compile Include="TagLib\Ogg\XiphComment.cs" />
+    <Compile Include="TagLib\Picture.cs" />
+    <Compile Include="TagLib\Png\Codec.cs" />
+    <Compile Include="TagLib\Png\File.cs" />
+    <Compile Include="TagLib\Png\PngTag.cs" />
+    <Compile Include="TagLib\Properties.cs" />
+    <Compile Include="TagLib\ReadOnlyByteVector.cs" />
+    <Compile Include="TagLib\Riff\AviHeaderList.cs" />
+    <Compile Include="TagLib\Riff\AviStream.cs" />
+    <Compile Include="TagLib\Riff\BitmapInfoHeader.cs" />
+    <Compile Include="TagLib\Riff\DivXTag.cs" />
+    <Compile Include="TagLib\Riff\File.cs" />
+    <Compile Include="TagLib\Riff\InfoTag.cs" />
+    <Compile Include="TagLib\Riff\List.cs" />
+    <Compile Include="TagLib\Riff\ListTag.cs" />
+    <Compile Include="TagLib\Riff\MovieIdTag.cs" />
+    <Compile Include="TagLib\Riff\WaveFormatEx.cs" />
+    <Compile Include="TagLib\StringList.cs" />
+    <Compile Include="TagLib\SupportedMimeType.cs" />
+    <Compile Include="TagLib\Tag.cs" />
+    <Compile Include="TagLib\Tiff\Arw\File.cs" />
+    <Compile Include="TagLib\Tiff\BaseTiffFile.cs" />
+    <Compile Include="TagLib\Tiff\Codec.cs" />
+    <Compile Include="TagLib\Tiff\Cr2\File.cs" />
+    <Compile Include="TagLib\Tiff\Dng\File.cs" />
+    <Compile Include="TagLib\Tiff\File.cs" />
+    <Compile Include="TagLib\Tiff\Nef\File.cs" />
+    <Compile Include="TagLib\Tiff\Pef\File.cs" />
+    <Compile Include="TagLib\Tiff\Rw2\File.cs" />
+    <Compile Include="TagLib\Tiff\Rw2\IFDReader.cs" />
+    <Compile Include="TagLib\Tiff\Rw2\IFDTag.cs" />
+    <Compile Include="TagLib\UnsupportedFormatException.cs" />
+    <Compile Include="TagLib\WavPack\File.cs" />
+    <Compile Include="TagLib\WavPack\StreamHeader.cs" />
+    <Compile Include="TagLib\Xmp\XmlNodeExtensions.cs" />
+    <Compile Include="TagLib\Xmp\XmpNode.cs" />
+    <Compile Include="TagLib\Xmp\XmpNodeType.cs" />
+    <Compile Include="TagLib\Xmp\XmpNodeVisitor.cs" />
+    <Compile Include="TagLib\Xmp\XmpTag.cs" />
+    <Compile Include="ThumbnailCacheSettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ThumbnailCacheSettingForm.Designer.cs">
+      <DependentUpon>ThumbnailCacheSettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToneCurves.cs" />
+    <Compile Include="ToolStripOverwriter.cs" />
+    <Compile Include="TouchLibrary\Classes.cs" />
+    <Compile Include="TouchLibrary\Core\TouchListener.cs" />
+    <Compile Include="TouchLibrary\TouchListeners.cs" />
+    <Compile Include="TouchLibrary\TouchAnalyzer.cs" />
+    <Compile Include="TouchLibrary\TouchWindow\TouchControlManager.cs" />
+    <Compile Include="TouchLibrary\TouchWindow\TouchWindowManager.cs" />
+    <Compile Include="TouchLibrary\TouchWindow\WindowTouchListener.cs" />
+    <Compile Include="ViewerFormImageFilter.cs" />
+    <Compile Include="ViewerFormMakeShortcutDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewerFormMakeShortcutDialog.Designer.cs">
+      <DependentUpon>ViewerFormMakeShortcutDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VirtualFolder.cs" />
+    <Compile Include="Configuration.cs" />
+    <Compile Include="DataGridViewSorter.cs" />
+    <Compile Include="GenerarClasses.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CatalogForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CatalogForm.Designer.cs">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LockManager.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="WinTouch\GestureEventArgs.cs" />
+    <Compile Include="WinTouch\GestureListener.cs" />
+    <Compile Include="WinTouch\NativeMethods.cs" />
+    <Compile Include="WinTouch\UnmanagedLibrary.cs" />
+    <Compile Include="ZipPlaAddressBar.cs" />
+    <Compile Include="PackedImageLoader.cs" />
+    <Compile Include="Properties\Resources2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="SearchManager.cs" />
+    <Compile Include="TextAnalyzer.cs" />
+    <Compile Include="UpdateCheck.cs" />
+    <Compile Include="ViewerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ViewerForm.Designer.cs">
+      <DependentUpon>ViewerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SettingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SettingForm.Designer.cs">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MessageForwarder.cs" />
+    <Compile Include="ZipPlaInfo.cs" />
+    <Compile Include="ZipPlaLab.cs" />
+    <Compile Include="ZipTag.cs" />
+    <EmbeddedResource Include="AboutForm.resx">
+      <DependentUpon>AboutForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ArchivePropertiesForm.resx">
+      <DependentUpon>ArchivePropertiesForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CatalogForm.resx">
+      <DependentUpon>CatalogForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FilterEditForm.resx">
+      <DependentUpon>FilterEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KeyboardShortcutSettingForm.resx">
+      <DependentUpon>KeyboardShortcutSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MouseGestureSettingForm.resx">
+      <DependentUpon>MouseGestureSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SmartFolderSettingForm.resx">
+      <DependentUpon>SmartFolderSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TagEditForm.resx">
+      <DependentUpon>TagEditForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ThumbnailCacheSettingForm.resx">
+      <DependentUpon>ThumbnailCacheSettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewerForm.resx">
+      <DependentUpon>ViewerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources2.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SettingForm.resx">
+      <DependentUpon>SettingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ViewerFormMakeShortcutDialog.resx">
+      <DependentUpon>ViewerFormMakeShortcutDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="iTextSharp\iTextSharp\text\error_messages\en.lng" />
+    <None Include="iTextSharp\iTextSharp\text\error_messages\nl.lng" />
+    <None Include="iTextSharp\iTextSharp\text\error_messages\pt.lng" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Courier-Bold.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Courier-BoldOblique.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Courier-Oblique.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Courier.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Helvetica-Bold.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Helvetica-BoldOblique.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Helvetica-Oblique.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Helvetica.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Symbol.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Times-Bold.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Times-BoldItalic.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Times-Italic.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\Times-Roman.afm" />
+    <None Include="iTextSharp\iTextSharp\text\pdf\fonts\ZapfDingbats.afm" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SharpCompress\project.json" />
+    <None Include="SharpCompress\SharpCompress.pfx" />
+    <None Include="SharpCompress\SharpCompress.xproj" />
+    <None Include="TagLib\TagLib.sources" />
+    <None Include="WinTouch\LICENSE" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dark.ico" />
+    <Content Include="HtmlRenderer\Core\Utils\ImageError.png" />
+    <Content Include="HtmlRenderer\Core\Utils\ImageLoad.png" />
+    <Content Include="iTextSharp\iTextSharp\text\AGPL.txt" />
+    <Content Include="iTextSharp\iTextSharp\text\LICENSE.txt" />
+    <Content Include="iTextSharp\iTextSharp\text\NOTICE.txt" />
+    <Content Include="iTextSharp\iTextSharp\text\pdf\fonts\glyphlist.txt" />
+    <Content Include="iTextSharp\iTextSharp\text\pdf\fonts\mustRead.html" />
+    <Content Include="iTextSharp\iTextSharp\xmp\impl\package.html" />
+    <Content Include="iTextSharp\iTextSharp\xmp\impl\xpath\package.html" />
+    <Content Include="iTextSharp\iTextSharp\xmp\options\package.html" />
+    <Content Include="iTextSharp\iTextSharp\xmp\package.html" />
+    <Content Include="iTextSharp\iTextSharp\xmp\properties\package.html" />
+    <Content Include="light.ico" />
+    <None Include="Properties\PreprocessorForPerformance.js" />
+    <None Include="Properties\PostprocessorForPerformance.js" />
+    <Content Include="Properties\readme.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 および x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>cscript //nologo "$(ProjectDir)Properties\PostprocessorForPerformance.js" "$(ProjectDir)"
+if $(ConfigurationName) == AutoBuild (
+  if exist "$(TargetPath)" (
+    if exist "$(TargetPath).bak" (
+      fc "$(TargetPath)" "$(TargetPath).bak"
+      if %25ERRORLEVEL%25 == 0 (
+        set aBuild=false
+      ) else (
+        set aBuild=true
+      )
+      del "$(TargetPath).bak"
+    ) else (
+      set aBuild=true
+    )
+  ) else (
+    set aBuild=false
+  )
+) else (
+  set aBuild=false
+)
+if %25aBuild%25==true if exist "$(SolutionDir)..\FullyAutomatedBuilding" (
+  "$(SolutionDir)..\FullyAutomatedBuilding\make.bat" "$(TargetName)" "$(TargetExt)" "$(SolutionDir)"
+)</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PreBuildEvent>if $(ConfigurationName) == AutoBuild if exist "$(TargetPath)" copy "$(TargetPath)" "$(TargetPath).bak"
+cscript //nologo "$(ProjectDir)Properties\PreprocessorForPerformance.js" "$(ProjectDir)"</PreBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
