@@ -30230,7 +30230,7 @@ namespace ZipPla
 
     public class ThumbViewerItem : IDisposable
     {
-        static readonly SemaphoreSlim semaphore = new SemaphoreSlim(Environment.ProcessorCount, Environment.ProcessorCount);
+        static readonly SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
         public CatalogForm OwnerCatalog { get; set; }
         private ThumbViewer owner = null;
         public ThumbViewer Owner { get { return owner; } }
