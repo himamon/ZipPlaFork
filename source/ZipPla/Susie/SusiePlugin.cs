@@ -280,11 +280,11 @@ namespace garu.Util
             if (version == null) return null;
             if (version.StartsWith("BPG to DIB"))
             {
-                return isSupportedQBPG;
+                return isSupported_BPG;
             }
             if (version.StartsWith("WebP to DIB"))
             {
-                return isSupportedQWebP;
+                return isSupported_WebP;
             }
             // xcf ‚Í“®ìŠm”FÏ‚Ý‚¾‚ª *.xcf.gz ‚È‚Ç‚É‚à‘Î‰ž‚µ‚Ä‚¢‚Äˆ—‚ª•¡ŽG‚È‚Ì‚Å isSupportedByExtension ‚ð—˜—p
             return null;
@@ -296,13 +296,13 @@ namespace garu.Util
             return isSupportedByExtension;
         }
 
-        private static bool isSupportedQBPG(string filename, byte[] dw, ref byte[] dummy)
+        private static bool isSupported_BPG(string filename, byte[] dw, ref byte[] dummy)
         {
             return dw != null && dw.Length > 4 &&
                 dw[0x0] == 0x42 && dw[0x1] == 0x50 && dw[0x2] == 0x47 && dw[0x3] == 0xFB;
         }
 
-        private static bool isSupportedQWebP(string filename, byte[] dw, ref byte[] dummy)
+        private static bool isSupported_WebP(string filename, byte[] dw, ref byte[] dummy)
         {
             return dw != null && dw.Length > 16 &&
                 dw[0x0] == 0x52 && dw[0x1] == 0x49 && dw[0x2] == 0x46 && dw[0x3] == 0x46 &&
