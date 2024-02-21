@@ -361,3 +361,6 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# iTextSharp.text.log namespace内のファイルが除外されるのを防ぐ
+!source/ZipPla/iTextSharp/iTextSharp/text/log/
