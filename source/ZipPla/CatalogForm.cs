@@ -4729,7 +4729,7 @@ namespace ZipPla
             }
         }
 
-        private enum LoadResult { Success, FileNotFound, LoadError, NotYet }
+        internal enum LoadResult { Success, FileNotFound, LoadError, NotYet }
 
         private bool GetHeader(string zipPath, bool isDir, out bool plainFile, out int filecount, out LoadResult loadResult, out long fileSize, out ImageInfo imageInfo, out MovieInfo movieInfo)
         {
@@ -4860,7 +4860,7 @@ namespace ZipPla
         public const int MetaPageCount_NotLoaded = -1;
         public const int MetaPageCount_NotBook = -2;
 
-        private Bitmap GetThumbnail(string zipPath, bool isDir, BackgroundWorker backgroundWorker, out bool plainFile, out int filecount, out LoadResult loadError, out long fileSize, out ImageInfo imageInfo, ref MovieInfo movieInfo, bool existsHeader)
+        internal Bitmap GetThumbnail(string zipPath, bool isDir, BackgroundWorker backgroundWorker, out bool plainFile, out int filecount, out LoadResult loadError, out long fileSize, out ImageInfo imageInfo, ref MovieInfo movieInfo, bool existsHeader)
         {
             var altSepPos = zipPath.IndexOf(Path.AltDirectorySeparatorChar);
 
@@ -6545,6 +6545,9 @@ namespace ZipPla
 
         private static void drawFileImage(Graphics g, Rectangle rect, Font font, Brush foreBrush, string text, string iconPath, DateTime lastWriteTime, Brush backBrush, bool isDir, bool isExist)
         {
+            //サムネイル読み込み処理を雑に書き換えたため、内部状態ではサムネイル読み込みが完了していないことになっている。
+            //サムネイルの上にファイルアイコンが重なって表示されてしまうため、ファイルアイコンそのものを描画しないように変更した。
+            return;
             try
             {
                 //var icon = iconPath != null ? FileTypeManager.GetLargeIconBitmap(iconPath, useFileAttrinutes: !isExist) : null;
@@ -8903,8 +8906,12 @@ namespace ZipPla
                 //sw.Stop(); ss += $"clearEnd:\t{sw.Elapsed}\n"; sw.Restart();
                 for (var i = 0; i < len; i++)
                 {
-                    var item = new ThumbViewerItem();
-                    item.Text = ZipNameArray[i];
+                    var item = new ThumbViewerItem()
+                    { 
+                        OwnerCatalog = this, 
+                        FilePath = ZipPathArray[i],
+                        Text = ZipNameArray[i],
+                    };
                     if (i == selectedIndex) ThumbViewer.thumbViewerItemSelectedFieldInfo.SetValue(item, true);
                     //tvCatalog[i] = item;
                     tvCatalog.SilentSet(i, item);
@@ -8995,89 +9002,10 @@ namespace ZipPla
 
         private void bmwMakePreview_DoWork(object sender, BackgroundMultiWorker.EachDoWorkEventArgs e)
         {
-            e.Result = null;
-
-            var index = e.WorkNumber;
-            var index2 = index / 2;
-
-            var zpa = ZipPathArray;
-
-            if (loadingGuid != e.WorkSetGuid || zpa == null || zpa.Length <= index2) return;
-
-            var zipPath = zpa[index2];
-
-
-            //var zipPath = (string)e.Argument;
-            int filecount;
-            LoadResult loadResult;
-            long fileSize;
-            ImageInfo imageInfo;
-            MovieInfo movieInfo;
-            bool plainFile;
-            var isDir = false;
-            try
-            {
-                isDir = Directory.Exists(zipPath);
-            }
-            catch { }
-
-            if (bmwMakePreview.CancellationPending) return;
-
-            var task = Task.Run(() =>
-            {
-                try
-                {
-                    if ((index & 1) == 0)
-                    {
-                        if (bmwMakePreview.GetWorkState(index | 1) == BackgroundMultiWorker.WorkState.Waiting)
-                        {
-                            var done = GetHeader(zipPath, isDir, out plainFile, out filecount, out loadResult, out fileSize, out imageInfo, out movieInfo);
-                            e.Result = done ? Tuple.Create(zipPath, null as Bitmap, plainFile, filecount, loadResult, fileSize, imageInfo, movieInfo) : null;
-                        }
-                        else
-                        {
-                            e.Result = null;
-                        }
-                    }
-                    else
-                    {
-                        //var ma = MovieInfoArray;
-                        //if (ma != null && ma.Length > index2) movieInfo = ma[index2]; else movieInfo = null;
-
-
-                        var ma = MovieInfoArray;
-                        var ia = ImageInfoArray;
-                        var ca = FileCountArray;
-                        if (ma != null && ia != null && ca != null && ma.Length > index2 && ia.Length > index2 && ca.Length > index2)
-                        {
-                            var m = ma[index2];
-                            var i = ia[index2];
-                            var c = ca[index2];
-                            movieInfo = m;
-                            var existsHeader = m != null || i != null || c >= 0;
-
-                            var thumbnail = GetThumbnail(zipPath, isDir, (BackgroundWorker)sender, out plainFile, out filecount, out loadResult, out fileSize, out imageInfo, ref movieInfo, existsHeader);
-                            e.Result = existsHeader && thumbnail == null ? null : Tuple.Create(zipPath, thumbnail,
-                                plainFile, filecount, loadResult, fileSize, imageInfo, movieInfo);
-                        }
-                        else
-                        {
-                            e.Result = null;
-                        }
-
-                    }
-                }
-                catch { }
-            });
-
-            while (!bmwMakePreview.CancellationPending && !CatalogForm_FormClosing_FormClosed)
-            {
-                if (task.Wait(50))
-                {
-                    task.Dispose(); // task の Dispose は必須ではないが可能なら行う
-                    break;
-                }
-            }
+            //ThumbViewerItem内でサムネイルを読み込むため、ここの関数は丸々削除した。
+            //本来この関数内（+bmwMakePreview_EachRunWorkerCompleted）で行われていたサムネイルの読み込み完了処理も削除しているため、内部状態が常にサムネイルの読み込み中になっている点に注意。
+            //この関数をすぐに抜けるとUIスレッドがブロックされファイル数の多いフォルダを開くとスクロール時に残像が発生するため、2フレーム分Sleepさせている。
+            Thread.Sleep(33);
         }
 
 
@@ -9186,24 +9114,22 @@ namespace ZipPla
                     item.Text = name;
                     tvCatalog[index] = item;
                     */
-                    if (hasThumbnail)
+                    //if (hasThumbnail)
                     {
                         // 一度消えて同じパスが再設定された場合を考慮する必要がある
                         var item = tvCatalog[index];
                         if (item != null)
                         {
                             // 再設定後の読み込みに先を越される可能性も否定はできない
-                            var oldImage = item.Image;
-                            if (oldImage != null) oldImage.Dispose();
-                            item.Image = ResultTuple.Item2;
+                            item.Image = null;
                         }
                         else
                         {
-                            item = new ThumbViewerItem();
-                            item.Image = ResultTuple.Item2;
+                            item = new ThumbViewerItem(){ OwnerCatalog = this };
                             item.Text = name;
                             tvCatalog[index] = item;
                         }
+                        item.FilePath = ResultTuple.Item1;
                     }
 
                     // setFileListRowInLock 内部で行う
@@ -18807,9 +18733,13 @@ namespace ZipPla
                                     var silent = silentMode == SilentMode.Always || silentMode == SilentMode.OnlyIfNotSuccess && loadResult != LoadResult.Success;
                                     if (tvCatalog[index] == null)
                                     {
-                                        var item = new ThumbViewerItem();
-                                        item.Image = thumbnail;
-                                        item.Text = zipName;
+                                        var item = new ThumbViewerItem()
+                                        {
+                                            OwnerCatalog = this,
+                                            FilePath = path,
+                                            Image = thumbnail,
+                                            Text = zipName,
+                                        };
                                         if (silent)
                                         {
                                             tvCatalog.SilentSet(index, item);
@@ -30300,6 +30230,8 @@ namespace ZipPla
 
     public class ThumbViewerItem : IDisposable
     {
+        static readonly SemaphoreSlim semaphore = new SemaphoreSlim(Environment.ProcessorCount, Environment.ProcessorCount);
+        public CatalogForm OwnerCatalog { get; set; }
         private ThumbViewer owner = null;
         public ThumbViewer Owner { get { return owner; } }
         private int index = -1;
@@ -30307,6 +30239,7 @@ namespace ZipPla
         private bool selected = false;
         public bool Selected { get { return selected; } }
         private Bitmap image;
+        object imageLocker = new object();
         public Bitmap Image
         {
             get
@@ -30315,14 +30248,65 @@ namespace ZipPla
             }
             set
             {
-                if (image != null) image.Dispose();
-                image = value;
-                if (owner != null)
+                lock (imageLocker)
                 {
-                    owner.DrawItem(index, selected, onlyFrame: false);
+                    if (image == value)
+                        return;
+
+                    if (image != null) image.Dispose();
+                    image = value;
+                    if (owner != null)
+                    {
+                        owner.DrawItem(index, selected, onlyFrame: false);
+                    }
                 }
             }
         }
+
+        string filePath = null;
+        public string FilePath 
+        {
+            get=> filePath;
+            set
+            {
+                if (filePath == value)
+                    return;
+                filePath = value;
+                Image = null;
+            }
+        }
+
+        CancellationTokenSource source;
+        public async Task LoadAsync()
+        {
+            var path = FilePath;
+            if (path == null || OwnerCatalog == null || source != null || Image != null) 
+                return;
+            source = new CancellationTokenSource();
+            MovieInfo info = null;
+            await semaphore.WaitAsync();
+            try
+            {
+                if (source.IsCancellationRequested)
+                    return;
+                Image = await Task.Run(() => OwnerCatalog.GetThumbnail(path, Directory.Exists(path), null, out _, out _, out _, out _, out _, ref info, false));
+                if (FilePath != path)
+                    Image = null;
+            }
+            finally
+            {
+                source.Dispose();
+                source = null;
+                semaphore.Release();
+            }
+        }
+
+        public void Clear()
+        {
+            source?.Cancel();
+            Image = null;
+        }
+
         private string text;
         public string Text
         {
@@ -32515,6 +32499,29 @@ namespace ZipPla
                 var selected = selectedIndices.Contains(dataIndex);
                 DrawItem(g, dataIndex, selected, alreadyCheckedVisibleRegion: true, clipRectangle: clipRectangle, AutoScrollPositionY: autoScrollPositionY);
             }
+
+            //表示中のアイテム+前後1列のアイテムのBitmapを読み込み、それ以外を破棄する
+            var clearBefore = -AutoScrollPosition.Y / gridSizeV - 1;
+            var clearAfter = (-AutoScrollPosition.Y + Height) / gridSizeV + 2;
+            for(int i=0;i<clearBefore*cols;i++)
+            {
+                var dataIndex = ShowIndexToDataIndex[i];
+                var item = items[dataIndex];
+                item.Clear();
+            }
+            for(int i=Math.Max(0, clearBefore*cols); i < Math.Min(clearAfter*cols, ShowIndexToDataIndex.Length);i++)
+            {
+                var dataIndex = ShowIndexToDataIndex[i];
+                var item = items[dataIndex];
+                _ = item.LoadAsync();
+            }
+            for(int i=clearAfter*cols;i<showIndexToDataIndex.Length;i++)
+            {
+                var dataIndex = ShowIndexToDataIndex[i];
+                var item = items[dataIndex];
+                item.Clear();
+            }
+
         }
 
         private int scrollByFloorGrid(MouseEventArgs e, int line)

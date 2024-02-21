@@ -3438,7 +3438,8 @@
             this.dataGridViewTextBoxColumn13.ReadOnly = true;
             // 
             // bmwMakePreview
-            // 
+            //
+            
             this.bmwMakePreview.SelfClosing = true;
             this.bmwMakePreview.ThreadCount = 1;
             this.bmwMakePreview.WorkerSupportsCancellation = true;
